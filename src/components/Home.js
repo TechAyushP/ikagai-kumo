@@ -44,7 +44,7 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   text-align: center;

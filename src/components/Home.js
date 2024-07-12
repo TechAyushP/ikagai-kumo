@@ -44,17 +44,15 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
   display: flex;
   flex-direction: column;
-    text-align: center;
-  padding-top: 3rem;
-  font-family: 'Courier Prime', monospace;
+  text-align: center;
+  padding-top: 1rem;
+  font-family: "Courier Prime", monospace;
   font-weight: ${({ bold }) => (bold ? 700 : 400)};
-  font-style: ${({ italic }) => (italic ? 'italic' : 'normal')};
+  font-style: ${({ italic }) => (italic ? "italic" : "normal")};
 `;
-
 
 const Grid = styled.div`
   display: grid;

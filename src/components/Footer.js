@@ -14,7 +14,6 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <Words>
-          
           Odoo is a comprehensive suite of open-source APIs and implementations,
           that can inspire and facilitate application development. Odoo's unique
           value lies in its combination of exceptional ease-of-use and full

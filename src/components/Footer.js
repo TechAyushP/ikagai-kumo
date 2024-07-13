@@ -4,20 +4,28 @@ import styled from "styled-components";
 function Footer() {
   const Words = styled.h1`
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-top: -1.6rem;
     font-family: "Courier Prime", monospace;
     font-weight: ${({ bold }) => (bold ? 100 : 50)};
     font-style: ${({ italic }) => (italic ? "italic" : "normal")};
     text-align: center;
   `;
+  const Mail = styled.h1`
+  font-size: 1rem;
+  margin-top: -0.40rem;
+  margin-bottom: -3.2rem;
+  font-family: "Courier Prime", monospace;
+  font-weight: ${({ bold }) => (bold ? 100 : 50)};
+  font-style: ${({ italic }) => (italic ? "italic" : "normal")};
+  text-align: center;
+  color: orange;
+`;
+
   return (
     <footer className="footer">
       <div className="footer-content">
         <Words>
-          Odoo is a comprehensive suite of open-source APIs and implementations,
-          that can inspire and facilitate application development. Odoo's unique
-          value lies in its combination of exceptional ease-of-use and full
-          integration and a large community.
+        <p style={{color:'orange'}}>Ikigai Kumo: Purpose Cloud</p>Dive into our comprehensive suite of APIs implementations, designed to inspire and facilitate application development. Experience unmatched ease-of-use, seamless integration, and join a thriving community of developers.
         </Words>
         <div className="footer-section logo-section">
           <div className="footer-description">
@@ -43,6 +51,9 @@ function Footer() {
               <a href="#">
                 <i className="fab fa-whatsapp"></i>
               </a>
+            </div>
+            <div className="footer-section ul li a:hover">
+              <Mail >contact@mdzaid.us.kg</Mail>
             </div>
           </div>
         </div>

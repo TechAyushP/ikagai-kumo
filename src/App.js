@@ -1,19 +1,17 @@
+import { Route } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Home from "./components/Home";
+import Router from "./components/Router";
 
 function App() {
   return (
-    <>
-     <div>
-      <Header />
-      <div className="content">
-        <Home/>
+    <Router>
+      <div>
+        <Header />
+        <Footer />
       </div>
-      <Footer />
-    </div>
-    </>
+    </Router>
   );
 }
 

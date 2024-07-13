@@ -140,7 +140,7 @@ body {
 }
 
 .footer-section ul li a:hover {
-  color: #ff8c00;
+  color: #14110c;
 }
 
 .logo-section {
@@ -163,10 +163,6 @@ body {
   color: #ffffff;
   margin: 0 0.5rem;
   transition: color 0.3s;
-}
-
-.social-media a:hover {
-  color: #ff8c00;
 }
 
 .footer-bottom {

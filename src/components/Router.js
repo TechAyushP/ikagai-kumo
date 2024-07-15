@@ -17,9 +17,9 @@ function Router() {
     },
   ]);
   return <div>
-    <Header/>
+    {/* <Header/> */}
     <RouterProvider router={routes} />
-    <Footer/>
+    {/* <Footer/> */}
   </div>;
 }
 

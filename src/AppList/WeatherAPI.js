@@ -6,7 +6,7 @@ function WeatherAPI() {
   const [notFound, setNotFound] = useState(false);
 
   const handleSearch = () => {
-    const APIKey = '9e1ac06a6f72dc48dc80d70b4f040583';
+    const APIKey = 'c69d2d4574a2fdec9e5558835e9f4abd';
 
     if (city === '') return;
 

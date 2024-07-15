@@ -10,7 +10,7 @@ function WeatherAPI() {
 
     if (city === '') return;
 
-    fetch(`https://api.openweathermap.org/data/3.0/weather?q=${city}&units=metric&appid=${APIKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
       .then(response => response.json())
       .then(json => {
         if (json.cod === '404') {

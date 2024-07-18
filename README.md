@@ -1,5 +1,4 @@
-# ![image](https://github.com/user-attachments/assets/8bb37cc6-3866-4bbb-95f6-5cbf51c4efab)
-
+# ![image](https://github.com/user-attachments/assets/2e3b15f1-bfed-4554-a6a2-d0395bef9da8)
 
 Ikigai Kumo: Purpose Cloud
 

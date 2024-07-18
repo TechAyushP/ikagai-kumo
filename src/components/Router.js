@@ -6,6 +6,7 @@ import Home from "./Home";
 import Header from "./Header";
 import Footer from "./Footer";
 import SpeedTest from "../AppList/SpeedTest";
+import QrcodeGenerator from "../AppList/QrcodeGenerator";
 
 function Router() {
   const routes = createBrowserRouter([
@@ -25,6 +26,10 @@ function Router() {
       path: "/speedtestapi",
       element: <SpeedTest />,
     },
+    {
+      path: "/qrcodeApi",
+      element: <QrcodeGenerator />,
+    }
   ]);
   return <div>
     {/* <Header/> */}

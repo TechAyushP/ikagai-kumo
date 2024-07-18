@@ -12,37 +12,43 @@ const Home = () => {
   };
 
   return (
-    <><Header /><div>
-      <Title>API DUMP: Explore and Play!</Title>
-      <Main>
-        <Grid>
-          {images.map((image, index) => (
-            <Card
-              key={index}
-              style={{ backgroundImage: `url(${image.src})` }}
-              onClick={() => handleImageClick(image.url)}
-            >
-              <Content>{`Image ${index + 1}`}</Content>
-            </Card>
-          ))}
-        </Grid>
-      </Main>
-      <Footer />
-    </div></>
+    <>
+      <Header />
+      <div>
+        <Title>API DUMP: Explore and Play!</Title>
+        <Main>
+          <Grid>
+            {images.map((image, index) => (
+              <Card
+                key={index}
+                style={{ backgroundImage: `url(${image.src})` }}
+                onClick={() => handleImageClick(image.url)}
+              >
+                <Content>{image.name}</Content>
+              </Card>
+            ))}
+          </Grid>
+        </Main>
+        <Footer />
+      </div>
+    </>
   );
 };
 const images = [
   {
     src: "https://plus.unsplash.com/premium_photo-1670793631007-e86c6ddfd812?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D",
     url: "/weatherapi",
+    name: "Weather API",
   },
   {
     src: "https://images.unsplash.com/photo-1711539924968-81d3382a85d9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D",
-    url: "https://www.google.com/",
+    url: "/compassapi",
+    name: "Compass API",
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1685082778205-8665f65e8c2c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D",
-    url: "https://www.example3.com/",
+    url: "/speedtestapi",
+    name: "Speed Test API",
   },
   {
     src: "https://images.unsplash.com/photo-1712145078393-665300b197e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D",
@@ -111,15 +117,17 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-  font-size: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding-top: 1rem;
-  font-family: "Courier Prime", monospace;
-  font-weight: ${({ bold }) => (bold ? 700 : 400)};
-  font-style: ${({ italic }) => (italic ? "italic" : "normal")};
+font-size: 1.2rem;
+display: flex;
+color: #FDDF21;
+flex-direction: column;
+text-align: center;
+padding-top: 1rem;
+font-family: "Courier Prime", monospace;
+font-weight: ${({ bold }) => (bold ? 700 : 400)};
+font-style: ${({ italic }) => (italic ? "italic" : "normal")};
 `;
+
 
 const Grid = styled.div`
   display: grid;

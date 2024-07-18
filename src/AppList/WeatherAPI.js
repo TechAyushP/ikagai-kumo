@@ -190,7 +190,19 @@ function WeatherAPI() {
     marginTop: '12px',
   };
 
+  const footerStyle = {
+    fontSize: '1rem',
+    marginTop: '15.6rem',
+    marginBottom: '33rem',
+    fontFamily: '"Courier Prime", monospace',
+    fontWeight: 50,
+    fontStyle: 'normal',
+    textAlign: 'center',
+    color: 'white'
+  };
+
   return (
+    <>
     <div className="weather-container" style={containerStyle}>
       <div className="search-box" style={searchBoxStyle}>
         <i className="bi bi-geo-alt-fill" style={searchBoxIconStyle}></i>
@@ -253,7 +265,13 @@ function WeatherAPI() {
           </div>
         </div>
       )}
+
+      
     </div>
+    <footer style={footerStyle}>
+      This is a implementation of openweathermap.org/api provided by info@mdzaid.us.kg
+  </footer>
+  </>
   );
 };
 

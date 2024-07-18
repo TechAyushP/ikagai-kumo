@@ -1,5 +1,5 @@
-# 生き甲斐 Ikigai Kumo 雲
-![image](https://github.com/user-attachments/assets/8bb37cc6-3866-4bbb-95f6-5cbf51c4efab)
+# ![image](https://github.com/user-attachments/assets/8bb37cc6-3866-4bbb-95f6-5cbf51c4efab)
+
 
 Ikigai Kumo: Purpose Cloud
 

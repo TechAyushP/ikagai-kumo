@@ -115,6 +115,7 @@ export default function CipherCompass() {
       <GlobalStyle />
       <AppContainer>
         <CompassContainer>
+          <Heading>Qibla Compass</Heading>
           <Compass>
             <Arrow className="arrow" />
             <CompassCircle
@@ -125,6 +126,10 @@ export default function CipherCompass() {
             <QiblaArrow style={{ transform: `rotate(${pointDegree}deg)` }} />
           </Compass>
           <StartButton onClick={startCompass}>Start Compass</StartButton>
+          <InfoText>
+            A green dot will pop up in middle when the direction is towards Qibla.
+          </InfoText>
+          <InfoText>Info@mdzaid.us.kg</InfoText>
         </CompassContainer>
       </AppContainer>
     </>
@@ -147,12 +152,20 @@ const CompassContainer = styled.div`
   align-items: center;
 `;
 
+const Heading = styled.h1`
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-family: "Courier Prime", monospace;
+`;
+
 const Compass = styled.div`
   position: relative;
   width: 320px;
   height: 320px;
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
 `;
 
 const Arrow = styled.div`
@@ -206,7 +219,7 @@ const QiblaArrow = styled.div`
 `;
 
 const StartButton = styled.button`
-  margin-top: 2rem;
+  // margin-top: 2rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   color: #fff;
@@ -219,4 +232,13 @@ const StartButton = styled.button`
   &:hover {
     background-color: #0056b3;
   }
+`;
+
+const InfoText = styled.p`
+  margin-top: 1rem;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Courier Prime", monospace;
 `;

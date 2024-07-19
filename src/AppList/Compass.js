@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 // Styled-components for each CSS class
 const CompassContainer = styled.section`
@@ -200,13 +201,45 @@ const CompassNeedle = styled.div`
   transition: transform 0.5s;
 `;
 
-const Compass = () => {
+const normalizeAngle = (direction, oldAngle) => {
+  let newAngle = direction,
+    rot = oldAngle || 0,
+    ar = rot % 360;
+
+  while (newAngle < 0) { newAngle += 360; }
+  while (newAngle > 360) { newAngle -= 360; }
+  while (rot < 0) { rot += 360; }
+  while (rot > 360) { rot -= 360; }
+
+  if (ar < 0) { ar += 360; }
+  if (ar < 180 && newAngle > ar + 180) { rot -= 360; }
+  if (ar >= 180 && newAngle <= ar - 180) { rot += 360; }
+
+  rot += newAngle - ar;
+
+  return rot;
+};
+
+const directionName = (dir, directionNames) => {
+  let sections = directionNames.length,
+    sect = 360 / sections,
+    x = Math.floor((dir + sect / 2) / sect);
+
+  x = x >= sections ? 0 : x;
+
+  return directionNames[x];
+};
+
+const Compass = ({ directionNames }) => {
   const [angle, setAngle] = useState(0);
+  const [oldAngle, setOldAngle] = useState(0);
 
   useEffect(() => {
     const handleOrientation = (event) => {
       const alpha = event.alpha;
-      setAngle(alpha);
+      const normalizedAngle = normalizeAngle(alpha, oldAngle);
+      setAngle(normalizedAngle);
+      setOldAngle(normalizedAngle);
     };
 
     window.addEventListener('deviceorientation', handleOrientation);
@@ -214,7 +247,9 @@ const Compass = () => {
     return () => {
       window.removeEventListener('deviceorientation', handleOrientation);
     };
-  }, []);
+  }, [oldAngle]);
+
+  const direction = directionName(angle, directionNames);
 
   return (
     <CompassContainer>
@@ -239,9 +274,21 @@ const Compass = () => {
         <West>W</West>
         <East>E</East>
         <CompassNeedle angle={-angle} />
+        <div className="compass__labels">
+          <span>{direction}</span>
+          <span>{Math.round(angle)}<sup>o</sup></span>
+        </div>
       </Box>
     </CompassContainer>
   );
+};
+
+Compass.defaultProps = {
+  directionNames: ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'],
+};
+
+Compass.propTypes = {
+  directionNames: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Compass;

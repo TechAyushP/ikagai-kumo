@@ -190,6 +190,16 @@ const East = styled.p`
   margin: 116px 0 0 220px;
 `;
 
+const CompassNeedle = styled.div`
+  width: 4px;
+  height: 100px;
+  background-color: red;
+  position: absolute;
+  transform-origin: bottom center;
+  transform: rotate(${props => props.angle}deg);
+  transition: transform 0.5s;
+`;
+
 const Compass = () => {
   const [angle, setAngle] = useState(0);
 
@@ -228,6 +238,7 @@ const Compass = () => {
         <South>S</South>
         <West>W</West>
         <East>E</East>
+        <CompassNeedle angle={-angle} />
       </Box>
     </CompassContainer>
   );

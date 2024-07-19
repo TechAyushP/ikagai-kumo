@@ -296,8 +296,7 @@ const Compass = ({ directionNames }) => {
     <>
       {" "}
       <footer style={footerStyle}>
-        This is a implementation of openweathermap.org/api provided by
-        info@mdzaid.us.kg
+        This implementation is provided by info@mdzaid.us.kg
       </footer>
       <CompassContainer>
         <Box>

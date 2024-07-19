@@ -202,7 +202,7 @@ const CompassNeedle = styled.div`
   left: 60%;
   transform-origin: bottom center;
   transform: rotate(${(props) => props.angle}deg);
-  
+
   transition: transform 0.5s;
 `;
 
@@ -217,6 +217,16 @@ const Compass__labels = styled.div`
   transform: rotate(${(props) => props.angle}deg);
   transition: transform 0.5s;
 `;
+const footerStyle = {
+  fontSize: "1rem",
+  marginTop: "1rem",
+  marginBottom: "1rem",
+  fontFamily: '"Courier Prime", monospace',
+  fontWeight: 50,
+  fontStyle: "normal",
+  textAlign: "center",
+  color: "white",
+};
 
 const normalizeAngle = (direction, oldAngle) => {
   let newAngle = direction,
@@ -284,6 +294,11 @@ const Compass = ({ directionNames }) => {
 
   return (
     <>
+      {" "}
+      <footer style={footerStyle}>
+        This is a implementation of openweathermap.org/api provided by
+        info@mdzaid.us.kg
+      </footer>
       <CompassContainer>
         <Box>
           <CircleOne />

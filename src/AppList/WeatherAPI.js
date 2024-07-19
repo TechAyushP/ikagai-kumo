@@ -206,7 +206,7 @@ function WeatherAPI() {
     fontWeight: 50,
     fontStyle: "normal",
     textAlign: "center",
-    color: "BLACK",
+    color: "#B3C0A4",
   };
 
   return (
@@ -292,8 +292,8 @@ function WeatherAPI() {
         )}
       </div>
       <footer style={footerStyle}>
-        This is a implementation of openweathermap.org/api provided by
-        info@mdzaid.us.kg
+        Click Search icon after entering desired location <br />
+        Info@mdzaid.us.kg
       </footer>
     </>
   );

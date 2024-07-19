@@ -6,6 +6,7 @@ import Home from "./Home";
 import Header from "./Header";
 import Footer from "./Footer";
 import SpeedTest from "../AppList/SpeedTest";
+import NewsApi from "../AppList/NewsApi";
 
 function Router() {
   const routes = createBrowserRouter([
@@ -24,6 +25,10 @@ function Router() {
     {
       path: "/speedtestapi",
       element: <SpeedTest />,
+    },
+    {
+      path: "/news",
+      element: <NewsApi />,
     },
   ]);
   return <div>

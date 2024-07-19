@@ -45,30 +45,31 @@ const Home = () => {
 
 const images = [
   {
-    src: "https://plus.unsplash.com/premium_photo-1670793631007-e86c6ddfd812?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.postimg.cc/1XKhZmm9/11machin-illo-super-Jumbo-v3.jpg",
     url: "/weatherapi",
     name: "Weather API",
   },
   {
-    src: "https://images.unsplash.com/photo-1711539924968-81d3382a85d9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D",
+    src: " https://i.postimg.cc/pTtdBdyC/sesha-reddy-kovvuri-Go5q-DQJQSU4-unsplash.jpg",
     url: "/compassapi",
     name: "Compass API",
   },
   {
-    src: "https://plus.unsplash.com/premium_photo-1685082778205-8665f65e8c2c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.postimg.cc/vmmmqKvg/speedtest-header-930x620.jpg",
     url: "/speedtestapi",
     name: "Speed Test API",
   },
   {
-    src: "https://images.unsplash.com/photo-1712145078393-665300b197e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D",
-    url: "https://www.example4.com/",
+    src: "https://i.postimg.cc/x1c76yzj/1692083278814.jpg",
+    url: "/news",
+    name: "News"
   },
   {
-    src: "https://plus.unsplash.com/premium_photo-1712039658651-e0ebe853d103?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.postimg.cc/mr7mnd24/0x0.webp",
     url: "https://www.example5.com/",
   },
   {
-    src: "https://images.unsplash.com/photo-1615390265246-72d3198a48b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmxhY2slMjBiZWFjaHxlbnwwfHwwfHx8MA%3D%3D",
+    src: "https://i.postimg.cc/PqKwNZSZ/file-sharing.png",
     url: "https://www.example6.com/",
   },
   {

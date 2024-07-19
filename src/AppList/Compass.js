@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
+import styled, { css } from "styled-components";
+import PropTypes from "prop-types";
 
 // Styled-components for each CSS class
 const CompassContainer = styled.section`
@@ -8,6 +8,7 @@ const CompassContainer = styled.section`
   align-items: center;
   justify-content: center;
   height: 100vh;
+
   background-color: #f0f0f0;
 `;
 
@@ -19,7 +20,7 @@ const Box = styled.div`
 
 const circleStyles = css`
   position: absolute;
-  border-radius: 100%;
+  border-radius: 30%;
 `;
 
 const CircleOne = styled.div`
@@ -39,7 +40,7 @@ const CircleTwo = styled.div`
   margin: 55px 0px 0 55px;
   z-index: 1;
   border: solid 3px transparent;
-  box-shadow: inset 12px 0px 21px rgba(0,0,0,0.4);
+  box-shadow: inset 12px 0px 21px rgba(0, 0, 0, 0.4);
 `;
 
 const CircleThree = styled.div`
@@ -49,7 +50,7 @@ const CircleThree = styled.div`
   background: #e0e1e3;
   margin: 15px 0 0 15px;
   border: solid 3px transparent;
-  box-shadow: inset 12px 0px 21px rgba(0,0,0,0.4);
+  box-shadow: inset 12px 0px 21px rgba(0, 0, 0, 0.4);
 `;
 
 const CircleFour = styled.div`
@@ -59,7 +60,7 @@ const CircleFour = styled.div`
   background: #aeadb0;
   z-index: 3;
   margin: 111px 0 0 111px;
-  box-shadow: inset 7px 0px 9px rgba(0,0,0,0.4);
+  box-shadow: inset 7px 0px 9px rgba(0, 0, 0, 0.4);
 `;
 
 const triangleStyles = css`
@@ -192,12 +193,26 @@ const East = styled.p`
 `;
 
 const CompassNeedle = styled.div`
-  width: 4px;
+  width: 0px;
   height: 100px;
   background-color: red;
   position: absolute;
+
+  // left: 90%;
   transform-origin: bottom center;
-  transform: rotate(${props => props.angle}deg);
+  transform: rotate(${(props) => props.angle}deg);
+  transition: transform 0.5s;
+`;
+
+const Compass__labels = styled.div`
+  width: 4px;
+  height: 130px;
+  background-color: red;
+  position: absolute;
+top: 30%;
+  left: 60%;
+  transform-origin: bottom center;
+  transform: rotate(${(props) => props.angle}deg);
   transition: transform 0.5s;
 `;
 
@@ -206,14 +221,28 @@ const normalizeAngle = (direction, oldAngle) => {
     rot = oldAngle || 0,
     ar = rot % 360;
 
-  while (newAngle < 0) { newAngle += 360; }
-  while (newAngle > 360) { newAngle -= 360; }
-  while (rot < 0) { rot += 360; }
-  while (rot > 360) { rot -= 360; }
+  while (newAngle < 0) {
+    newAngle += 360;
+  }
+  while (newAngle > 360) {
+    newAngle -= 360;
+  }
+  while (rot < 0) {
+    rot += 360;
+  }
+  while (rot > 360) {
+    rot -= 360;
+  }
 
-  if (ar < 0) { ar += 360; }
-  if (ar < 180 && newAngle > ar + 180) { rot -= 360; }
-  if (ar >= 180 && newAngle <= ar - 180) { rot += 360; }
+  if (ar < 0) {
+    ar += 360;
+  }
+  if (ar < 180 && newAngle > ar + 180) {
+    rot -= 360;
+  }
+  if (ar >= 180 && newAngle <= ar - 180) {
+    rot += 360;
+  }
 
   rot += newAngle - ar;
 
@@ -242,49 +271,55 @@ const Compass = ({ directionNames }) => {
       setOldAngle(normalizedAngle);
     };
 
-    window.addEventListener('deviceorientation', handleOrientation);
+    window.addEventListener("deviceorientation", handleOrientation);
 
     return () => {
-      window.removeEventListener('deviceorientation', handleOrientation);
+      window.removeEventListener("deviceorientation", handleOrientation);
     };
   }, [oldAngle]);
 
   const direction = directionName(angle, directionNames);
 
   return (
-    <CompassContainer>
-      <Box>
-        <CircleOne />
-        <CircleThree />
-        <CircleTwo />
-        <CircleFour />
-        <TriangleTop />
-        <TriangleTopShadow />
-        <TriangleBottom />
-        <TriangleWest />
-        <TriangleEast />
-        <TriangleSouth />
-        <TriangleNorth />
-        <TriangleNW />
-        <TriangleNE />
-        <TriangleSE />
-        <TriangleSW />
-        <North>N</North>
-        <South>S</South>
-        <West>W</West>
-        <East>E</East>
-        <CompassNeedle angle={-angle} />
-        <div className="compass__labels">
-          <span>{direction}</span>
-          <span>{Math.round(angle)}<sup>o</sup></span>
-        </div>
-      </Box>
-    </CompassContainer>
+    <>
+      
+      <CompassContainer>
+        <Box>
+          <CircleOne />
+          <CircleThree />
+          {/* <CircleTwo /> */}
+          <CircleFour />
+          <TriangleTop />
+          <TriangleTopShadow />
+          <TriangleBottom />
+          <TriangleWest />
+          <TriangleEast />
+          <TriangleSouth />
+          <TriangleNorth />
+          <TriangleNW />
+          <TriangleNE />
+          <TriangleSE />
+          <TriangleSW />
+          <North>N</North>
+          <South>S</South>
+          <West>W</West>
+          <East>E</East>
+          <CompassNeedle angle={-angle} />
+          <Compass__labels>
+            <span>{direction}</span>
+            <span>
+              {Math.round(angle)}
+              <sup>o</sup>
+            </span>
+          </Compass__labels>
+        </Box>
+      </CompassContainer>
+    </>
   );
 };
 
 Compass.defaultProps = {
-  directionNames: ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'],
+  directionNames: ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
 };
 
 Compass.propTypes = {

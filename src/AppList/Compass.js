@@ -193,12 +193,13 @@ const East = styled.p`
 `;
 
 const CompassNeedle = styled.div`
-  width: 0px;
-  height: 100px;
+  width: 5px;
+  height: 130px;
+
   background-color: red;
   position: absolute;
 
-  // left: 90%;
+  left: 60%;
   transform-origin: bottom center;
   transform: rotate(${(props) => props.angle}deg);
   transition: transform 0.5s;
@@ -209,7 +210,7 @@ const Compass__labels = styled.div`
   height: 130px;
   background-color: red;
   position: absolute;
-top: 30%;
+  top: 30%;
   left: 60%;
   transform-origin: bottom center;
   transform: rotate(${(props) => props.angle}deg);
@@ -282,7 +283,6 @@ const Compass = ({ directionNames }) => {
 
   return (
     <>
-      
       <CompassContainer>
         <Box>
           <CircleOne />

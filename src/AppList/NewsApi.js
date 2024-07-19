@@ -283,74 +283,8 @@ const News = () => {
             <input style={styles.searchInput} type="text" name="s" id="s" />
             <button style={styles.searchButton} type="submit">Search</button>
           </form>
-          <div style={styles.wrapperSidebar}>
-            <h2 style={styles.wrapperSidebarH2}>Popular Posts</h2>
-            <ul style={styles.wrapperSidebarUl}>
-              <li style={styles.wrapperSidebarLi}><a href="#">Make Money Online Creating Websites</a></li>
-              <li style={styles.wrapperSidebarLi}><a href="#">Top 100 Internet Marketing Tips</a></li>
-              <li style={styles.wrapperSidebarLi}><a href="#">Tutorial: How to add Videos in your Post</a></li>
-              <li style={styles.wrapperSidebarLi}><a href="#">Sample Post Unordered List</a></li>
-              <li style={styles.wrapperSidebarLi}><a href="#">Sample Post Blockquote</a></li>
-            </ul>
-            <h2 style={styles.wrapperSidebarH2}>Flickr Photos</h2>
-            <div style={styles.flickr}>
-              {Array.from({ length: 6 }).map((_, index) => (
-                <a href="#" style={styles.flickrA} key={index}><img src={`images/_thumb${index + 3}.jpg`} alt="" /></a>
-              ))}
-            </div>
-            <h2 style={styles.wrapperSidebarH2}>Featured Video</h2>
-            <div style={styles.video}>
-              <img style={styles.videoImg} src="images/_video.jpg" alt="" />
-            </div>
-            <h2 style={styles.wrapperSidebarH2}>Tags</h2>
-            <div style={styles.tags}></div>
-            <div style={styles.lSbar}>
-              <h2 style={styles.lSbarH2}>Categories</h2>
-              <ul style={styles.lSbarUl}>
-                <li style={styles.lSbarLi}><a href="#">Entertainment</a></li>
-                <li style={styles.lSbarLi}><a href="#">Fashion</a></li>
-                <li style={styles.lSbarLi}><a href="#">Internet</a></li>
-                <li style={styles.lSbarLi}><a href="#">Marketing</a></li>
-                <li style={styles.lSbarLi}><a href="#">Lifestyle</a></li>
-                <li style={styles.lSbarLi}><a href="#">Make Money</a></li>
-                <li style={styles.lSbarLi}><a href="#">Online</a></li>
-                <li style={styles.lSbarLi}><a href="#">Parenting</a></li>
-              </ul>
-              <h2 style={styles.lSbarH2}>Pages</h2>
-              <ul style={styles.lSbarUl}>
-                <li style={styles.lSbarLi}><a href="#">Home</a></li>
-                <li style={styles.lSbarLi}><a href="#">About</a></li>
-                <li style={styles.lSbarLi}><a href="#">Archives</a></li>
-                <li style={styles.lSbarLi}><a href="#">Links</a></li>
-                <li style={styles.lSbarLi}><a href="#">Contact</a></li>
-                <li style={styles.lSbarLi}><a href="#">Sitemap</a></li>
-              </ul>
-            </div>
-            <div style={styles.rSbar}>
-              <h2 style={styles.rSbarH2}>Archives</h2>
-              <ul style={styles.rSbarUl}>
-                <li style={styles.rSbarLi}><a href="#">August 2008</a></li>
-                <li style={styles.rSbarLi}><a href="#">July 2008</a></li>
-                <li style={styles.rSbarLi}><a href="#">June 2008</a></li>
-                <li style={styles.rSbarLi}><a href="#">May 2008</a></li>
-                <li style={styles.rSbarLi}><a href="#">April 2008</a></li>
-                <li style={styles.rSbarLi}><a href="#">March 2008</a></li>
-              </ul>
-              <h2 style={styles.rSbarH2}>Blogroll</h2>
-              <ul style={styles.rSbarUl}>
-                <li style={styles.rSbarLi}><a href="#">Carlos</a></li>
-                <li style={styles.rSbarLi}><a href="#">Digital Point Forum</a></li>
-                <li style={styles.rSbarLi}><a href="#">Eric's Photo Gallery</a></li>
-                <li style={styles.rSbarLi}><a href="#">Fashion Trends</a></li>
-                <li style={styles.rSbarLi}><a href="#">Google Scoreboard</a></li>
-                <li style={styles.rSbarLi}><a href="#">Marketing Forum</a></li>
-              </ul>
-              <h2 style={styles.rSbarH2}>Meta</h2>
-              <ul style={styles.rSbarUl}>
-                <li style={styles.rSbarLi}><a href="#">Login</a></li>
-              </ul>
-            </div>
-          </div>
+          
+         
         </div>
         <div style={styles.footer}>
           <p>Copyright &copy; 2009 - <a href="#">Website Name</a> &middot; All Rights Reserved</p>

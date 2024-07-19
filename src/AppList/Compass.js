@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useGeolocated } from "react-geolocated";
+import styled, { createGlobalStyle } from "styled-components";
 
 export default function CipherCompass() {
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
@@ -45,6 +46,13 @@ export default function CipherCompass() {
       navigator.userAgent.match(/AppleWebKit/)
     );
   };
+
+  const GlobalStyle = createGlobalStyle`
+    body {
+      background: rgb(172, 221, 231);
+      font-family: "Roboto", sans-serif;
+    }
+  `;
 
   const calcDegreeToPoint = (latitude, longitude) => {
     const point = {
@@ -103,70 +111,112 @@ export default function CipherCompass() {
   console.log("coords:", coords);
 
   return (
-    <div className="App">
-      <div>myPointStyle:{myPointStyle}</div>
-      <div>pointDegree:{pointDegree}</div>
-      <div>coords?.latitude:{coords?.latitude}</div>
-      <div>coords?.longitude:{coords?.longitude}</div>
-      <h1>Hello CodeSandbox</h1>
-      <div className="compass">
-        <div className="arrow" />
-        <div
-          className="compass-circle"
-          style={{ transform: compassCircleTransformStyle }}
-        />
-        <div className="my-point" style={{ opacity: myPointStyle }} />
-      </div>
-      <button className="start-btn" onClick={startCompass}>
-        Start compass
-      </button>
-      <style jsx>{`
-        .App {
-          font-family: sans-serif;
-          text-align: center;
-        }
-        .compass {
-          position: relative;
-          width: 320px;
-          height: 320px;
-          border-radius: 50%;
-          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-          margin: auto;
-        }
-        .compass > .arrow {
-          position: absolute;
-          width: 0;
-          height: 0;
-          top: -20px;
-          left: 50%;
-          transform: translateX(-50%);
-          border-style: solid;
-          border-width: 30px 20px 0 20px;
-          border-color: red transparent transparent transparent;
-          z-index: 1;
-        }
-        .compass > .compass-circle,
-        .compass > .my-point {
-          position: absolute;
-          width: 90%;
-          height: 90%;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          transition: transform 0.1s ease-out;
-          background: url(https://purepng.com/public/uploads/large/purepng.com-compasscompassinstrumentnavigationcardinal-directionspointsdiagram-1701527842316onq7x.png)
-            center no-repeat;
-          background-size: contain;
-        }
-        .compass > .my-point {
-          opacity: 0;
-          width: 20%;
-          height: 20%;
-          background: rgb(8, 223, 69);
-          border-radius: 50%;
-          transition: opacity 0.5s ease-out;
-        }
-      `}</style>
-    </div>
+    <>
+      <GlobalStyle />
+      <AppContainer>
+        <CompassContainer>
+          <Compass>
+            <Arrow className="arrow" />
+            <CompassCircle
+              className="compass-circle"
+              style={{ transform: compassCircleTransformStyle }}
+            />
+            <MyPoint className="my-point" style={{ opacity: myPointStyle }} />
+            <QiblaArrow style={{ transform: `rotate(${pointDegree}deg)` }} />
+          </Compass>
+          <StartButton onClick={startCompass}>Start Compass</StartButton>
+        </CompassContainer>
+      </AppContainer>
+    </>
   );
 }
+
+const AppContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+`;
+
+const CompassContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Compass = styled.div`
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+`;
+
+const Arrow = styled.div`
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 30px 20px 0 20px;
+  border-color: red transparent transparent transparent;
+  z-index: 1;
+`;
+
+const CompassCircle = styled.div`
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  background: url(https://purepng.com/public/uploads/large/purepng.com-compasscompassinstrumentnavigationcardinal-directionspointsdiagram-1701527842316onq7x.png)
+    center no-repeat;
+  background-size: contain;
+`;
+
+const MyPoint = styled.div`
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(8, 223, 69);
+  border-radius: 50%;
+  transition: opacity 0.5s ease-out;
+`;
+
+const QiblaArrow = styled.div`
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-style: solid;
+  border-width: 50px 25px 0 25px;
+  border-color: green transparent transparent transparent;
+`;
+
+const StartButton = styled.button`
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;

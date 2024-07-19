@@ -1,8 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: rgb(108, 75, 94);
+    font-family: "Roboto", sans-serif;
+  }
+`;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,6 +20,7 @@ const Home = () => {
 
   return (
     <>
+      <GlobalStyle />
       <Header />
       <div>
         <Title>API DUMP: Explore and Play!</Title>
@@ -34,6 +42,7 @@ const Home = () => {
     </>
   );
 };
+
 const images = [
   {
     src: "https://plus.unsplash.com/premium_photo-1670793631007-e86c6ddfd812?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D",
@@ -117,17 +126,16 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-font-size: 1.2rem;
-display: flex;
-color: #FDDF21;
-flex-direction: column;
-text-align: center;
-padding-top: 1rem;
-font-family: "Courier Prime", monospace;
-font-weight: ${({ bold }) => (bold ? 700 : 400)};
-font-style: ${({ italic }) => (italic ? "italic" : "normal")};
+  font-size: 1.2rem;
+  display: flex;
+  color: #fddf21;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 1rem;
+  font-family: "Courier Prime", monospace;
+  font-weight: ${({ bold }) => (bold ? 700 : 400)};
+  font-style: ${({ italic }) => (italic ? "italic" : "normal")};
 `;
-
 
 const Grid = styled.div`
   display: grid;

@@ -167,9 +167,9 @@ const TriangleSW = styled.div`
 
 const directionStyles = css`
   position: absolute;
-  color: #fff;
-  font-family: "Arial Black", sans-serif;
-  text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.35);
+  // color:#FFFFFF;
+  // font-family: "Arial Black", sans-serif;
+  // text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.35);
 `;
 
 const North = styled.p`
@@ -202,6 +202,7 @@ const CompassNeedle = styled.div`
   left: 60%;
   transform-origin: bottom center;
   transform: rotate(${(props) => props.angle}deg);
+  
   transition: transform 0.5s;
 `;
 

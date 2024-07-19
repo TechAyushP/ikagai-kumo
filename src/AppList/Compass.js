@@ -123,11 +123,11 @@ export default function CipherCompass() {
               style={{ transform: compassCircleTransformStyle }}
             />
             <MyPoint className="my-point" style={{ opacity: myPointStyle }} />
-            <QiblaArrow style={{ transform: `rotate(${pointDegree}deg)` }} />
           </Compass>
           <StartButton onClick={startCompass}>Start Compass</StartButton>
           <InfoText>
-            A green dot will pop up in middle when the direction is towards Qibla.
+            A green dot will pop up in middle when the direction is towards
+            Qibla.
           </InfoText>
           <InfoText>Info@mdzaid.us.kg</InfoText>
         </CompassContainer>
@@ -204,18 +204,6 @@ const MyPoint = styled.div`
   background: rgb(8, 223, 69);
   border-radius: 50%;
   transition: opacity 0.5s ease-out;
-`;
-
-const QiblaArrow = styled.div`
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 50%;
-  left: 50%;
-  transform-origin: bottom center;
-  border-style: solid;
-  border-width: 50px 25px 0 25px;
-  border-color: green transparent transparent transparent;
 `;
 
 const StartButton = styled.button`

@@ -8,6 +8,8 @@ import Footer from "./Footer";
 import SpeedTest from "../AppList/SpeedTest";
 import NewsApi from "../AppList/NewsApi";
 
+import QrcodeGenerator from "../AppList/QrcodeGenerator";
+
 function Router() {
   const routes = createBrowserRouter([
     {
@@ -23,6 +25,9 @@ function Router() {
       element: <Compass />,
     },
     {
+
+    
+
       path: "/speedtestapi",
       element: <SpeedTest />,
     },
@@ -34,6 +39,7 @@ function Router() {
       path: "/qrcodeApi",
       element: <QrcodeGenerator />,
     },
+
   ]);
   return (
     <div>

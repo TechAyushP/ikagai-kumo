@@ -74,7 +74,8 @@ const images = [
   },
   {
     src: "https://images.unsplash.com/photo-1671566852010-67185f179793?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
-    url: "https://www.example7.com/",
+    url: "/qrcodeApi", 
+    name: "QRCodeGenerator Api"
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1671995576295-c94cb5c3fd7f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fHw%3D",

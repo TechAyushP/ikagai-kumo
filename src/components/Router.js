@@ -24,13 +24,14 @@ function Router() {
       element: <Compass />,
     },
     {
-      path: "/speedtestapi",
-      element: <SpeedTest />,
+      path: "/news",
+      element: <NewsApi/>,
     },
     {
       path: "/qrcodeApi",
       element: <QrcodeGenerator />,
     }
+    
   ]);
   return <div>
     {/* <Header/> */}

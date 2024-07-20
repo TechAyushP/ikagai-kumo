@@ -119,7 +119,7 @@ export default function CipherCompass() {
               className="compass-circle"
               style={{ transform: compassCircleTransformStyle }}
             />
-            <MyPoint className="my-point" style={{ opacity: myPointStyle }} />
+            {/* <MyPoint className="my-point" style={{ opacity: myPointStyle }} /> */}
           </Compass>
           {/* <StartButton onClick={startCompass}>Start Compass</StartButton> */}
           <InfoText>

@@ -46,27 +46,28 @@ const Home = () => {
 const images = [
   {
     src: "https://i.postimg.cc/1XKhZmm9/11machin-illo-super-Jumbo-v3.jpg",
-    url: "/weatherapi",
-    name: "Weather API",
+    url: "/weather",
+    name: "Weather Forcast",
   },
   {
     src: " https://i.postimg.cc/pTtdBdyC/sesha-reddy-kovvuri-Go5q-DQJQSU4-unsplash.jpg",
-    url: "/compassapi",
-    name: "Compass API",
+    url: "/compass",
+    name: "Compass",
   },
   {
     src: "https://i.postimg.cc/vmmmqKvg/speedtest-header-930x620.jpg",
-    url: "/speedtestapi",
-    name: "Speed Test API",
+    url: "/speedtest",
+    name: "Speed Test",
   },
   {
     src: "https://i.postimg.cc/x1c76yzj/1692083278814.jpg",
     url: "/news",
-    name: "News"
+    name: "News",
   },
   {
     src: "https://i.postimg.cc/mr7mnd24/0x0.webp",
-    url: "https://www.example5.com/",
+    url: "/qrcode",
+    name: "Link to QR",
   },
   {
     src: "https://i.postimg.cc/PqKwNZSZ/file-sharing.png",
@@ -74,8 +75,6 @@ const images = [
   },
   {
     src: "https://images.unsplash.com/photo-1671566852010-67185f179793?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
-    url: "/qrcodeApi", 
-    name: "QRCodeGenerator Api"
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1671995576295-c94cb5c3fd7f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fHw%3D",

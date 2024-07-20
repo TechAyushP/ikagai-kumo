@@ -17,18 +17,15 @@ function Router() {
       element: <Home />,
     },
     {
-      path: "/weatherapi",
+      path: "/weather",
       element: <WeatherAPI />,
     },
     {
-      path: "/compassapi",
+      path: "/compass",
       element: <Compass />,
     },
     {
-
-    
-
-      path: "/speedtestapi",
+      path: "/speedtest",
       element: <SpeedTest />,
     },
     {
@@ -36,10 +33,9 @@ function Router() {
       element: <NewsApi />,
     },
     {
-      path: "/qrcodeApi",
+      path: "/qrcode",
       element: <QrcodeGenerator />,
     },
-
   ]);
   return (
     <div>

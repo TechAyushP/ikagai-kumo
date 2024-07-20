@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import QRCode from 'qrcode.react';
+import React, { useState } from "react";
+import QRCode from "qrcode.react";
 
 const QRCodeGenerator = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [url, setUrl] = useState('');
+  const [inputValue, setInputValue] = useState("");
+  const [url, setUrl] = useState("");
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
@@ -14,14 +14,16 @@ const QRCodeGenerator = () => {
       new URL(inputValue); // Validate URL
       setUrl(inputValue);
     } catch (_) {
-      alert('Please enter a valid URL.');
+      alert("Please enter a valid URL.");
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-r from-blue-400 to-purple-500">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-        <h1 className="mb-6 text-3xl font-bold text-center text-gray-800">QR Code Generator</h1>
+        <h1 className="mb-6 text-3xl font-bold text-center text-gray-800">
+          QR Code Generator
+        </h1>
         <input
           type="text"
           value={inputValue}

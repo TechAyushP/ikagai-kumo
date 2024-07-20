@@ -31,10 +31,13 @@ export default function CipherCompass() {
   useEffect(() => {
     if (!isGeolocationAvailable) {
       alert("Your browser does not support Geolocation");
-    } else if ((!isGeolocationEnabled, coords)) {
+    } else if (!isGeolocationEnabled) {
+      alert(
+        "Geolocation is not enabled, Please allow the location check your setting"
+      );
+    } else if (coords) {
       locationHandler(coords);
     }
-    startCompass();
   }, [coords, isGeolocationAvailable, isGeolocationEnabled]);
 
   const isIOS = () => {
@@ -121,7 +124,7 @@ export default function CipherCompass() {
             />
             <MyPoint className="my-point" style={{ opacity: myPointStyle }} />
           </Compass>
-          {/* <StartButton onClick={startCompass}>Start Compass</StartButton> */}
+          <StartButton onClick={startCompass}>Start Compass</StartButton>
           <InfoText>
             A green dot will pop up in middle when the direction is towards
             Qibla.

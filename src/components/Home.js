@@ -1,8 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: rgb(108, 75, 94);
+    font-family: "Roboto", sans-serif;
+  }
+`;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,6 +20,7 @@ const Home = () => {
 
   return (
     <>
+      <GlobalStyle />
       <Header />
       <div>
         <Title>API DUMP: Explore and Play!</Title>
@@ -34,19 +42,20 @@ const Home = () => {
     </>
   );
 };
+
 const images = [
   {
-    src: "https://plus.unsplash.com/premium_photo-1670793631007-e86c6ddfd812?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.postimg.cc/1XKhZmm9/11machin-illo-super-Jumbo-v3.jpg",
     url: "/weatherapi",
     name: "Weather API",
   },
   {
-    src: "https://images.unsplash.com/photo-1711539924968-81d3382a85d9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D",
+    src: " https://i.postimg.cc/pTtdBdyC/sesha-reddy-kovvuri-Go5q-DQJQSU4-unsplash.jpg",
     url: "/compassapi",
     name: "Compass API",
   },
   {
-    src: "https://plus.unsplash.com/premium_photo-1685082778205-8665f65e8c2c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.postimg.cc/vmmmqKvg/speedtest-header-930x620.jpg",
     url: "/speedtestapi",
     name: "Speed Test API",
   },
@@ -56,11 +65,11 @@ const images = [
     name: "News"
   },
   {
-    src: "https://plus.unsplash.com/premium_photo-1712039658651-e0ebe853d103?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8fA%3D%3D",
+    src: "https://i.postimg.cc/mr7mnd24/0x0.webp",
     url: "https://www.example5.com/",
   },
   {
-    src: "https://images.unsplash.com/photo-1615390265246-72d3198a48b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmxhY2slMjBiZWFjaHxlbnwwfHwwfHx8MA%3D%3D",
+    src: "https://i.postimg.cc/PqKwNZSZ/file-sharing.png",
     url: "https://www.example6.com/",
   },
   {
@@ -119,17 +128,16 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
-font-size: 1.2rem;
-display: flex;
-color: #FDDF21;
-flex-direction: column;
-text-align: center;
-padding-top: 1rem;
-font-family: "Courier Prime", monospace;
-font-weight: ${({ bold }) => (bold ? 700 : 400)};
-font-style: ${({ italic }) => (italic ? "italic" : "normal")};
+  font-size: 1.2rem;
+  display: flex;
+  color: #fddf21;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 1rem;
+  font-family: "Courier Prime", monospace;
+  font-weight: ${({ bold }) => (bold ? 700 : 400)};
+  font-style: ${({ italic }) => (italic ? "italic" : "normal")};
 `;
-
 
 const Grid = styled.div`
   display: grid;

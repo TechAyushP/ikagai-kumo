@@ -6,6 +6,7 @@ import Home from "./Home";
 import Header from "./Header";
 import Footer from "./Footer";
 import SpeedTest from "../AppList/SpeedTest";
+import NewsApi from "../AppList/NewsApi";
 
 import QrcodeGenerator from "../AppList/QrcodeGenerator";
 
@@ -24,17 +25,29 @@ function Router() {
       element: <Compass />,
     },
     {
+
+    
+
+      path: "/speedtestapi",
+      element: <SpeedTest />,
+    },
+    {
       path: "/news",
-      element: <NewsApi/>,
-    }
-    
-    
+      element: <NewsApi />,
+    },
+    {
+      path: "/qrcodeApi",
+      element: <QrcodeGenerator />,
+    },
+
   ]);
-  return <div>
-    {/* <Header/> */}
-    <RouterProvider router={routes} />
-    {/* <Footer/> */}
-  </div>;
+  return (
+    <div>
+      {/* <Header/> */}
+      <RouterProvider router={routes} />
+      {/* <Footer/> */}
+    </div>
+  );
 }
 
 export default Router;

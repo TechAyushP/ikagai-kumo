@@ -30,12 +30,18 @@ function Router() {
       path: "/news",
       element: <NewsApi />,
     },
+    {
+      path: "/qrcodeApi",
+      element: <QrcodeGenerator />,
+    },
   ]);
-  return <div>
-    {/* <Header/> */}
-    <RouterProvider router={routes} />
-    {/* <Footer/> */}
-  </div>;
+  return (
+    <div>
+      {/* <Header/> */}
+      <RouterProvider router={routes} />
+      {/* <Footer/> */}
+    </div>
+  );
 }
 
 export default Router;

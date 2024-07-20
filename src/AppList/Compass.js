@@ -112,7 +112,7 @@ export default function CipherCompass() {
       <GlobalStyle />
       <AppContainer>
         <CompassContainer>
-          <Heading>Qibla Compass</Heading>
+          {/* <Heading>Qibla Compass</Heading> */}
           <Compass>
             <Arrow className="arrow" />
             <CompassCircle
@@ -122,10 +122,10 @@ export default function CipherCompass() {
             {/* <MyPoint className="my-point" style={{ opacity: myPointStyle }} /> */}
           </Compass>
           {/* <StartButton onClick={startCompass}>Start Compass</StartButton> */}
-          <InfoText>
+          {/* <InfoText>
             A green dot will pop up in middle when the direction is towards
             Qibla.
-          </InfoText>
+          </InfoText> */}
           <InfoText>Info@mdzaid.us.kg</InfoText>
         </CompassContainer>
       </AppContainer>

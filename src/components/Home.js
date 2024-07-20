@@ -53,7 +53,7 @@ const images = [
   {
     src: "https://images.unsplash.com/photo-1712145078393-665300b197e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D",
     url: "/qrcodeApi", 
-    name: "Qr Api"
+    name: "QRCodeGenerator Api"
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1712039658651-e0ebe853d103?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8fA%3D%3D",

@@ -6,6 +6,7 @@ import Home from "./Home";
 import Header from "./Header";
 import Footer from "./Footer";
 import SpeedTest from "../AppList/SpeedTest";
+
 import QrcodeGenerator from "../AppList/QrcodeGenerator";
 
 function Router() {

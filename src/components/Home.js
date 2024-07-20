@@ -51,9 +51,9 @@ const images = [
     name: "Speed Test API",
   },
   {
-    src: "https://images.unsplash.com/photo-1712145078393-665300b197e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D",
-    url: "/qrcodeApi", 
-    name: "QRCodeGenerator Api"
+    src: "https://i.postimg.cc/x1c76yzj/1692083278814.jpg",
+    url: "/news",
+    name: "News"
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1712039658651-e0ebe853d103?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8fA%3D%3D",
@@ -65,7 +65,8 @@ const images = [
   },
   {
     src: "https://images.unsplash.com/photo-1671566852010-67185f179793?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
-    url: "https://www.example7.com/",
+    url: "/qrcodeApi", 
+    name: "QRCodeGenerator Api"
   },
   {
     src: "https://plus.unsplash.com/premium_photo-1671995576295-c94cb5c3fd7f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fHw%3D",

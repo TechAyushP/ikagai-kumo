@@ -26,11 +26,8 @@ function Router() {
     {
       path: "/news",
       element: <NewsApi/>,
-    },
-    {
-      path: "/qrcodeApi",
-      element: <QrcodeGenerator />,
     }
+    
     
   ]);
   return <div>

@@ -1,298 +1,211 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
-const styles = {
-  body: {
-    textAlign: 'center',
-    font: '12px Verdana',
-    color: '#565656',
-    backgroundColor: '#e9e9e9',
-    margin: 0,
-    padding: 0,
-  },
-  a: {
-    color: '#dc1000',
-    textDecoration: 'none',
-  },
-  aHover: {
-    color: '#000000',
-  },
-  img: {
-    border: 0,
-  },
-  break: {
-    fontSize: 0,
-    width: 0,
-    height: 0,
-    clear: 'both',
-  },
-  alignleft: {
-    float: 'left',
-    margin: '4px 10px 5px 0',
-  },
-  alignright: {
-    float: 'right',
-    margin: '4px 0 5px 0',
-  },
-  wrapper: {
-    width: '900px',
-    margin: '20px auto',
-    textAlign: 'left',
-  },
-  header: {
-    background: 'url(images/menu_bg.gif) no-repeat left top',
-    padding: '10px',
-  },
-  headerUl: {
-    listStyle: 'none',
-    margin: '0 0 10px 0',
-    padding: 0,
-  },
-  headerLi: {
-    display: 'inline',
-    margin: 0,
-    padding: '0 10px 0 0',
-  },
-  headerLiFirst: {
-    paddingLeft: 0,
-  },
-  headerLinks: {
-    font: '10px Verdana',
-    padding: '0 0 0 10px',
-  },
-  headerLogo: {
-    margin: '20px 0',
-  },
-  headerLogoH1: {
-    font: 'bold 30px Georgia, "Times New Roman", Times, serif',
-    margin: 0,
-  },
-  headerLogoP: {
-    fontSize: '10px',
-    margin: 0,
-  },
-  headerAd468x60: {
-    margin: '10px 0',
-  },
-  headerOl: {
-    background: '#3c7fb1',
-    listStyle: 'none',
-    margin: 0,
-    padding: '5px',
-  },
-  headerOlLi: {
-    display: 'inline',
-    margin: '0 0 0 10px',
-  },
-  content: {
-    float: 'left',
-    width: '620px',
-    margin: '20px 0',
-  },
-  post: {
-    borderBottom: '1px solid #d3d3d3',
-    margin: '0 0 20px 0',
-    padding: '0 0 20px 0',
-  },
-  thumb: {
-    float: 'left',
-    margin: '0 10px 0 0',
-  },
-  postH2: {
-    font: 'bold 14px Georgia, "Times New Roman", Times, serif',
-    margin: '0 0 5px 0',
-  },
-  postPDate: {
-    fontSize: '10px',
-    margin: '0 0 10px 0',
-  },
-  postP: {
-    margin: '0 0 10px 0',
-  },
-  postAContinue: {
-    fontSize: '10px',
-  },
-  postnav: {
-    borderTop: '1px solid #d3d3d3',
-    margin: '0 0 20px 0',
-    padding: '20px 0',
-  },
-  postnavUl: {
-    listStyle: 'none',
-    margin: 0,
-    padding: 0,
-  },
-  postnavLi: {
-    display: 'inline',
-    margin: 0,
-    padding: '0 5px 0 0',
-  },
-  sidebar: {
-    float: 'right',
-    width: '250px',
-    margin: '20px 0',
-  },
-  ads: {
-    margin: '0 0 20px 0',
-  },
-  search: {
-    margin: '0 0 20px 0',
-  },
-  searchInput: {
-    width: '120px',
-  },
-  searchButton: {
-    margin: '0 0 0 5px',
-  },
-  wrapperSidebar: {
-    margin: '0 0 20px 0',
-  },
-  wrapperSidebarH2: {
-    font: 'bold 12px Georgia, "Times New Roman", Times, serif',
-    margin: '0 0 10px 0',
-  },
-  wrapperSidebarUl: {
-    listStyle: 'none',
-    margin: 0,
-    padding: 0,
-  },
-  wrapperSidebarLi: {
-    margin: '0 0 10px 0',
-  },
-  flickr: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  flickrA: {
-    margin: '0 5px 5px 0',
-  },
-  video: {
-    textAlign: 'center',
-  },
-  videoImg: {
-    width: '100%',
-  },
-  tags: {
-    margin: '0 0 20px 0',
-  },
-  lSbar: {
-    float: 'left',
-    width: '100%',
-    margin: '0 0 20px 0',
-  },
-  lSbarH2: {
-    font: 'bold 12px Georgia, "Times New Roman", Times, serif',
-    margin: '0 0 10px 0',
-  },
-  lSbarUl: {
-    listStyle: 'none',
-    margin: 0,
-    padding: 0,
-  },
-  lSbarLi: {
-    margin: '0 0 10px 0',
-  },
-  rSbar: {
-    float: 'right',
-    width: '100%',
-    margin: '0 0 20px 0',
-  },
-  rSbarH2: {
-    font: 'bold 12px Georgia, "Times New Roman", Times, serif',
-    margin: '0 0 10px 0',
-  },
-  rSbarUl: {
-    listStyle: 'none',
-    margin: 0,
-    padding: 0,
-  },
-  rSbarLi: {
-    margin: '0 0 10px 0',
-  },
-  footer: {
-    clear: 'both',
-    textAlign: 'center',
-    fontSize: '10px',
-    margin: '20px 0 0 0',
-    padding: '10px',
-    background: '#f1f1f1',
-  },
-};
+function NewsApi() {
+  const [articles, setArticles] = useState([]);
+  const [time, setTime] = useState(new Date());
+  const apiKey = "bc3dad143f9a45e1929620a6d5ee544f";
+  const articlesUrl = `https://newsapi.org/v2/top-headlines?q=trump&apiKey=${apiKey}`;
+  const sourcesUrl = `https://newsapi.org/v2/top-headlines/sources?apiKey=${apiKey}`;
 
-const News = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const articlesResponse = await fetch(articlesUrl);
+        const articlesData = await articlesResponse.json();
+        const filteredArticles = articlesData.articles.filter(
+          (article) => article.urlToImage
+        );
+        setArticles(filteredArticles);
+      } catch (error) {
+        console.error("Error fetching the news:", error);
+      }
+    };
+    fetchData();
+  }, [articlesUrl]);
+
+  useEffect(() => {
+    const timerID = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timerID);
+  }, []);
+
+  const formatTime = (time) => {
+    const hours = time.getHours().toString().padStart(2, "0");
+    const minutes = time.getMinutes().toString().padStart(2, "0");
+    const seconds = time.getSeconds().toString().padStart(2, "0");
+    return `${hours}:${minutes}:${seconds}`;
+  };
+
+  const formatDate = (date) => {
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = date.toLocaleString("default", { month: "long" });
+    const year = date.getFullYear();
+    const dayName = date.toLocaleString("default", { weekday: "long" });
+    return `${day} ${month} ${year} (${dayName})`;
+  };
+
   return (
-    <div style={styles.body}>
-      <div style={styles.wrapper}>
-        <div style={styles.header}>
-          <ul style={styles.headerUl}>
-            <li style={{ ...styles.headerLi, ...styles.headerLiFirst }}><a href="#">Home</a></li>
-            <li style={styles.headerLi}><a href="about.html">About Us</a></li>
-            <li style={styles.headerLi}><a href="page.html">Demo Page</a></li>
-            <li style={styles.headerLi}><a href="contact.html">Contact Page</a></li>
-          </ul>
-          <p style={styles.headerLinks}>
-            Subscribe: <a href="#">Posts</a> | <a href="#">Comments</a> | <a href="#">Email</a>
-          </p>
-          <div style={styles.break}></div>
-          <div style={styles.headerLogo}>
-            <h1 style={styles.headerLogoH1}><a href="#">The Web News</a></h1>
-            <p style={styles.headerLogoP}>Free CSS Template</p>
-          </div>
-          <div style={styles.headerAd468x60}>
-            <a href="#"><img src="images/ad468x60.gif" alt="" /></a>
-          </div>
-          <div style={styles.break}></div>
-          <ol style={styles.headerOl}>
-            <li style={styles.headerOlLi}><a href="#">Advertising</a></li>
-            <li style={styles.headerOlLi}><a href="#">Entertainment</a></li>
-            <li style={styles.headerOlLi}><a href="#">Fashion</a></li>
-            <li style={styles.headerOlLi}><a href="#">Lifestyle</a></li>
-            <li style={styles.headerOlLi}><a href="#">Pictures</a></li>
-            <li style={styles.headerOlLi}><a href="#">Videos</a></li>
-          </ol>
-          <div style={styles.break}></div>
-        </div>
-        <div style={styles.content}>
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div style={styles.post} key={index}>
-              <div style={styles.thumb}>
-                <a href="#"><img src={`https://i.postimg.cc/SNjMZDmv/download-3.jpg`} alt="" /></a>
-              </div>
-              <h2 style={styles.postH2}><a href="#">A cras tincidunt, ut tellus et Gravida Ipsum</a></h2>
-              <p style={styles.postPDate}>Posted on January 7, 2008 by admin</p>
-              <p style={styles.postP}>Elementum ea, nibh et, velit sed sagittis. Ipsum libero. Viverra integer enim, sed dolor. Inceptos elit, vitae et. Eget eget nec, lectus nisl, vehicula est feugiat. cum condimentum mattis dui fusce ut, vel convallis suspendisse suspendisse sed in. Libero blandit curae at magna ut, id mauris suspendisse ligula neque integer non.</p>
-              <a style={styles.postAContinue} href="#">Continue Reading</a>
-            </div>
-          ))}
-          <div style={styles.postnav}>
-            <ul style={styles.postnavUl}>
-              <li style={styles.postnavLi}><a href="#">1</a></li>
-              <li style={styles.postnavLi}><a href="#">2</a></li>
-              <li style={styles.postnavLi}><a href="#">&raquo;</a></li>
-            </ul>
-            <div style={styles.break}></div>
-          </div>
-        </div>
-        <div style={styles.sidebar}>
-          <div style={styles.ads}>
-            <a href="#"><img src="images/ad125x125.jpg" alt="" /></a>
-            <a href="#"><img src="images/ad125x125.jpg" alt="" /></a>
-            <a href="#"><img src="images/ad125x125.jpg" alt="" /></a>
-            <a href="#"><img src="images/ad125x125.jpg" alt="" /></a>
-          </div>
-          <form style={styles.search} action="#">
-            <input style={styles.searchInput} type="text" name="s" id="s" />
-            <button style={styles.searchButton} type="submit">Search</button>
-          </form>
-          
-         
-        </div>
-        <div style={styles.footer}>
-          <p>Copyright &copy; 2009 - <a href="#">Website Name</a> &middot; All Rights Reserved</p>
-          <p>Template by: <a href="http://www.wpthemedesigner.com/">WordPress Designer</a> | Get More <a href="#">Free CSS Templates</a></p>
-        </div>
+    <div style={styles.container}>
+      <div style={styles.clockContainer}>
+        <div style={styles.time}>{formatTime(time)}</div>
+        <div style={styles.date}>{formatDate(time)}</div>
       </div>
+
+      <main style={styles.main}>
+        {articles.map((article, index) => (
+          <figure key={index} className="snip1347">
+            <img src={article.urlToImage} alt={article.title} />
+            <div className="source">{article.source.name}</div>
+            <figcaption>
+              <h2>{article.title}</h2>
+              <p>{article.description}</p>
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="read-more"
+              >
+                Read More
+              </a>
+            </figcaption>
+          </figure>
+        ))}
+      </main>
+      <aside style={styles.sidebar}>
+        <p>Sources: newsapi.org | info@mdzaid.us.kg</p>
+      </aside>
     </div>
   );
+}
+
+const styles = {
+  container: {
+    fontFamily: "Arial, sans-serif",
+    backgroundColor: "#121212",
+    padding: "20px",
+    minHeight: "100vh",
+  },
+  header: {
+    backgroundColor: "#1e88e5",
+    color: "white",
+    padding: "10px 20px",
+    borderRadius: "8px",
+    marginBottom: "20px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  title: {
+    margin: 0,
+  },
+  clockContainer: {
+    marginTop: "10px",
+    backgroundColor: "#1e1e1e",
+    color: "#39FF14",
+    padding: "10px",
+    borderRadius: "8px",
+    textAlign: "center",
+  },
+  time: {
+    fontSize: "4vh",
+    fontFamily: "Orbitron, sans-serif",
+  },
+  date: {
+    fontSize: "2vh",
+    fontFamily: "Orbitron, sans-serif",
+  },
+  main: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+    gap: "20px",
+    marginBottom: "20px",
+  },
+  sidebar: {
+    backgroundColor: "#1e1e1e",
+    padding: "20px",
+    color: "white",
+    display: "flex",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
+    marginTop: "20px",
+  },
 };
 
-export default News;
+const snip1347Styles = `
+  @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+  .snip1347 {
+    font-family: 'Roboto', Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 230px;
+    max-width: 315px;
+    width: 100%;
+    color: #ffffff;
+    text-align: left;
+    background-color: #141414;
+  }
+  .snip1347 * {
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+  }
+  .snip1347 img {
+    max-width: 100%;
+    vertical-align: top;
+    opacity: 0.85;
+    margin: 0 0 10px;
+  }
+  .snip1347 .source {
+    position: absolute;
+    background-color: #1e1e1e;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px 25px 0;
+    text-align: right;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+  }
+  .snip1347 figcaption {
+    width: 100%;
+    background-color: #141414;
+    padding: 0 25px 25px;
+    position: relative;
+  }
+  .snip1347 figcaption a {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 10px 0;
+    display: inline-block;
+    opacity: 0.65;
+    width: 47%;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .snip1347 figcaption a:hover {
+    opacity: 1;
+  }
+  .snip1347 h2 {
+    margin: 0 0 10px;
+    font-weight: 300;
+    font-size: 1.5em;
+    line-height: 1.2em;
+  }
+  .snip1347 p {
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    opacity: 0.8;
+  }
+`;
+
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = snip1347Styles;
+document.head.appendChild(styleSheet);
+
+export default NewsApi;

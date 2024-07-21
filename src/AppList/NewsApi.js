@@ -100,6 +100,7 @@ const styles = {
     padding: "10px",
     borderRadius: "8px",
     textAlign: "center",
+    fontfamily:'Orbitron'
   },
   time: {
     fontSize: "4vh",

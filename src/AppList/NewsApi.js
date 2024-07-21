@@ -2,26 +2,36 @@ import React, { useState, useEffect } from "react";
 
 function NewsApi() {
   const [articles, setArticles] = useState([]);
+  const [sources, setSources] = useState([]);
   const [time, setTime] = useState(new Date());
-  const apiKey = "bc3dad143f9a45e1929620a6d5ee544f";
-  const articlesUrl = `https://newsapi.org/v2/top-headlines?q=trump&apiKey=${apiKey}`;
-  const sourcesUrl = `https://newsapi.org/v2/top-headlines/sources?apiKey=${apiKey}`;
+  const apiKey = "pub_490408933c9efa72f983d97d9371812346021";
+  const articlesUrl = `  https://newsdata.io/api/1/latest?apikey=${apiKey}&country=us,in`;
+  const sourcesUrl = `https://newsdata.io/api/1/sources?apikey=${apiKey}`;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const articlesResponse = await fetch(articlesUrl);
         const articlesData = await articlesResponse.json();
-        const filteredArticles = articlesData.articles.filter(
-          (article) => article.urlToImage
+        const filteredArticles = articlesData.results.filter(
+          (article) => article.image_url && article.language.includes("english")
         );
         setArticles(filteredArticles);
+
+        const sourcesResponse = await fetch(sourcesUrl);
+        const sourcesData = await sourcesResponse.json();
+        const filteredSources = sourcesData.results.filter(
+          (source) =>
+            source.language.includes("english") &&
+            source.country.includes("india")
+        );
+        setSources(filteredSources);
       } catch (error) {
         console.error("Error fetching the news:", error);
       }
     };
     fetchData();
-  }, [articlesUrl]);
+  }, [articlesUrl, sourcesUrl]);
 
   useEffect(() => {
     const timerID = setInterval(() => setTime(new Date()), 1000);
@@ -53,26 +63,24 @@ function NewsApi() {
       <main style={styles.main}>
         {articles.map((article, index) => (
           <figure key={index} className="snip1347">
-            <img src={article.urlToImage} alt={article.title} />
-            <div className="source">{article.source.name}</div>
+            <img src={article.image_url} alt={article.title} />
             <figcaption>
               <h2>{article.title}</h2>
               <p>{article.description}</p>
               <a
-                href={article.url}
+                href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="read-more"
               >
                 Read More
               </a>
+              <div className="source">{article.source_id}</div>
             </figcaption>
           </figure>
         ))}
       </main>
-      <aside style={styles.sidebar}>
-        <p>Sources: newsapi.org | info@mdzaid.us.kg</p>
-      </aside>
+      <aside style={styles.sidebar}>info@mdzaid.us.kg</aside>
     </div>
   );
 }
@@ -83,22 +91,10 @@ const styles = {
     backgroundColor: "#121212",
     padding: "20px",
     minHeight: "100vh",
-  },
-  header: {
-    backgroundColor: "#1e88e5",
     color: "white",
-    padding: "10px 20px",
-    borderRadius: "8px",
-    marginBottom: "20px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  title: {
-    margin: 0,
   },
   clockContainer: {
-    marginTop: "10px",
+    marginBottom: "20px",
     backgroundColor: "#1e1e1e",
     color: "#39FF14",
     padding: "10px",
@@ -122,11 +118,13 @@ const styles = {
   sidebar: {
     backgroundColor: "#1e1e1e",
     padding: "20px",
-    color: "white",
-    display: "flex",
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
-    marginTop: "20px",
+  },
+  sourceIcon: {
+    width: "20px",
+    height: "20px",
+    marginRight: "10px",
   },
 };
 
@@ -143,6 +141,9 @@ const snip1347Styles = `
     color: #ffffff;
     text-align: left;
     background-color: #141414;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .snip1347 * {
     box-sizing: border-box;
@@ -153,19 +154,6 @@ const snip1347Styles = `
     vertical-align: top;
     opacity: 0.85;
     margin: 0 0 10px;
-  }
-  .snip1347 .source {
-    position: absolute;
-    background-color: #1e1e1e;
-    top: 0;
-    right: 0;
-    width: 100%;
-    padding: 10px 25px 0;
-    text-align: right;
-    font-size: 0.8em;
-    letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
   }
   .snip1347 figcaption {
     width: 100%;
@@ -200,6 +188,12 @@ const snip1347Styles = `
     font-size: 0.8em;
     letter-spacing: 1px;
     opacity: 0.8;
+  }
+  .snip1347 .source {
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    margin-top: 10px;
   }
 `;
 

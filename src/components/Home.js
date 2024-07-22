@@ -6,7 +6,7 @@ import Header from "./Header";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: rgb(108, 75, 94);
+     background: rgb(34, 40, 49);
     font-family: "Roboto", sans-serif;
   }
 `;
@@ -54,7 +54,7 @@ const images = [
     url: "/compass",
     name: "Compass",
   },
-  
+
   {
     src: "https://i.postimg.cc/x1c76yzj/1692083278814.jpg",
     url: "/news",
@@ -68,7 +68,7 @@ const images = [
   {
     src: "https://i.postimg.cc/PqKwNZSZ/file-sharing.png",
     url: "/tempmail",
-    name :" Temporary Mail"
+    name: " Temporary Mail",
   },
   {
     src: "https://i.postimg.cc/vmmmqKvg/speedtest-header-930x620.jpg",

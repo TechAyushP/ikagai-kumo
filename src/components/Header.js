@@ -19,7 +19,7 @@ function Header() {
     font-family: "Courier Prime", monospace;
     font-weight: ${({ bold }) => (bold ? 700 : 400)};
     font-style: ${({ italic }) => (italic ? "italic" : "normal")};
-    color: #BBCEA8;
+    color: #00ADB5;
     text-align: center;
     flex: 1;
   `;
@@ -28,6 +28,7 @@ function Header() {
     display: flex;
     justify-content: center;
     flex: 1;
+
   `;
 
   return (

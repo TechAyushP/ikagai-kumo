@@ -18,10 +18,10 @@ function Footer() {
     font-weight: ${({ bold }) => (bold ? 100 : 50)};
     font-style: ${({ italic }) => (italic ? "italic" : "normal")};
     text-align: center;
-    color: orange;
+    color: #00ADB5;
 
     a {
-      color: orange;
+      color: #00ADB5;
       text-decoration: none;
 
       &:hover {

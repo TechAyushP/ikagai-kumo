@@ -29,6 +29,7 @@ function WeatherAPI() {
 
   const containerStyle = {
     position: "relative",
+    margintop: "400px",
     width: "400px",
     height: weatherData || notFound ? "555px" : "100px",
     background: "linear-gradient(250deg, #fdd70069, #154f95be)",
@@ -44,6 +45,7 @@ function WeatherAPI() {
     position: "relative",
     width: "100%",
     height: "55px",
+    margintop: "400px",
     display: "flex",
     alignItems: "center",
   };
@@ -200,7 +202,7 @@ function WeatherAPI() {
 `;
   const footerStyle = {
     fontSize: "1rem",
-    marginTop: "15.6rem",
+    marginTop: "5.6rem",
     marginBottom: "33rem",
     fontFamily: '"Courier Prime", monospace',
     fontWeight: 50,

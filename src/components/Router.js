@@ -7,6 +7,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SpeedTest from "../AppList/SpeedTest";
 import NewsApi from "../AppList/NewsApi";
+import Tempmail from "../AppList/Tempmail";
 
 import QrcodeGenerator from "../AppList/QrcodeGenerator";
 
@@ -35,6 +36,10 @@ function Router() {
     {
       path: "/qrcode",
       element: <QrcodeGenerator />,
+    },
+    {
+      path: "/tempmail",
+      element: <Tempmail />,
     },
   ]);
   return (

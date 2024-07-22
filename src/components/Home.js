@@ -23,7 +23,7 @@ const Home = () => {
       <GlobalStyle />
       <Header />
       <div>
-        <Title>API DUMP: Explore and Play!</Title>
+        {/* <Title>API DUMP: Explore and Play!</Title> */}
         <Main>
           <Grid>
             {images.map((image, index) => (
@@ -54,11 +54,7 @@ const images = [
     url: "/compass",
     name: "Compass",
   },
-  {
-    src: "https://i.postimg.cc/vmmmqKvg/speedtest-header-930x620.jpg",
-    url: "/speedtest",
-    name: "Speed Test",
-  },
+  
   {
     src: "https://i.postimg.cc/x1c76yzj/1692083278814.jpg",
     url: "/news",
@@ -71,7 +67,13 @@ const images = [
   },
   {
     src: "https://i.postimg.cc/PqKwNZSZ/file-sharing.png",
-    url: "https://www.example6.com/",
+    url: "/tempmail",
+    name :" Temporary Mail"
+  },
+  {
+    src: "https://i.postimg.cc/vmmmqKvg/speedtest-header-930x620.jpg",
+    url: "/speedtest",
+    name: "Speed Test",
   },
   {
     src: "https://images.unsplash.com/photo-1671566852010-67185f179793?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",

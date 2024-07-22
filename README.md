@@ -1,6 +1,4 @@
-# ![image](https://github.com/user-attachments/assets/2e3b15f1-bfed-4554-a6a2-d0395bef9da8)
-
-Ikigai Kumo: Purpose Cloud
+# ![Untitled455555__1_-removebg-preview](https://github.com/user-attachments/assets/fa402990-9953-4f4b-8c8e-ae34507bf49d) Trusty Tools
 
 Dive into our comprehensive suite of APIs implementations, designed to inspire and facilitate application development. Experience unmatched ease-of-use, seamless integration, and join a thriving community of developers.
 

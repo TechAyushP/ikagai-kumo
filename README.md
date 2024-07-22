@@ -1,40 +1,32 @@
-# ![image](https://github.com/user-attachments/assets/2e3b15f1-bfed-4554-a6a2-d0395bef9da8)
-
-Ikigai Kumo: Purpose Cloud
-
+# ![large_trustytool](https://github.com/user-attachments/assets/7e26125d-6b74-40e6-a5b3-ed9d65bc3048)
 Dive into our comprehensive suite of APIs implementations, designed to inspire and facilitate application development. Experience unmatched ease-of-use, seamless integration, and join a thriving community of developers.
 
 ## Installation
 
-To install CinemixMZ, follow these steps:
+To install, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/mdzaid1299/ikagai-kumo.git
+   git clone https://github.com/mdzaid1299/trusty-tools
    ```
-
-2. **Navigate to the Project Directory**:
-   ```bash
-   cd CinemixMZ
-   ```
-
-3. **Install Dependencies**:
+   
+2. **Install Dependencies**:
    ```bash
    npm install
    ```
 
-4. **Start the Application**:
+3. **Start the Application**:
    ```bash
    npm start
    ```
 ## Contributing
 
-We welcome contributions from the community! To contribute to CinemixMZ, follow these steps:
+We welcome contributions from the community! To contribute to Trusty Tools, follow these steps:
 
 1. **Fork the Repository**: Click the "Fork" button at the top of the repository page.
 2. **Clone the Forked Repository**:
    ```bash
-   git clone https://github.com/yourusername/CinemixMZ.git
+   git clone https://github.com/mdzaid1299/trusty-tools
    ```
 3. **Create a New Branch**:
    ```bash

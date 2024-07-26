@@ -285,6 +285,7 @@ function WeatherAPI() {
                   onClick={() => {
                     setCity(suggestion.name);
                     setSuggestions([]);
+                    handleSearch();
                   }}
                 >
                   {suggestion.name}

@@ -80,7 +80,7 @@ function NewsApi() {
           </figure>
         ))}
       </main>
-      <aside style={styles.sidebar}>Info@mdzaid.us.kg</aside>
+      <aside style={styles.sidebar}>Contact- Info@mdzaid.us.kg</aside>
     </div>
   );
 }

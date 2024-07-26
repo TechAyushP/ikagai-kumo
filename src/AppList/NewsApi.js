@@ -5,7 +5,7 @@ function NewsApi() {
   const [sources, setSources] = useState([]);
   const [time, setTime] = useState(new Date());
   const apiKey = "pub_490408933c9efa72f983d97d9371812346021";
-  const articlesUrl = `  https://newsdata.io/api/1/latest?apikey=${apiKey}&country=us,in`;
+  const articlesUrl = `  https://newsdata.io/api/1/latest?apikey=${apiKey}&country=us,in&language=en`;
   const sourcesUrl = `https://newsdata.io/api/1/sources?apikey=${apiKey}`;
 
   useEffect(() => {
@@ -80,7 +80,7 @@ function NewsApi() {
           </figure>
         ))}
       </main>
-      <aside style={styles.sidebar}>info@mdzaid.us.kg</aside>
+      <aside style={styles.sidebar}>Info@mdzaid.us.kg</aside>
     </div>
   );
 }
@@ -100,7 +100,7 @@ const styles = {
     padding: "10px",
     borderRadius: "8px",
     textAlign: "center",
-    fontfamily:'Orbitron'
+    fontfamily: "Orbitron",
   },
   time: {
     fontSize: "4vh",

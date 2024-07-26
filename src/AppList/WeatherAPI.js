@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 
 function WeatherAPI() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [notFound, setNotFound] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
 
   const handleSearch = () => {
     const APIKey = "9e1ac06a6f72dc48dc80d70b4f040583";
@@ -27,9 +28,38 @@ function WeatherAPI() {
       });
   };
 
+  const fetchSuggestions = (query) => {
+    const APIKey = "9e1ac06a6f72dc48dc80d70b4f040583";
+
+    if (query === "") {
+      setSuggestions([]);
+      return;
+    }
+
+    fetch(
+      `https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&appid=${APIKey}`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        if (json.cod === "200") {
+          setSuggestions(json.list);
+        }
+      });
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  useEffect(() => {
+    fetchSuggestions(city);
+  }, [city]);
+
   const containerStyle = {
     position: "relative",
-    margintop: "400px",
+    marginTop: "50px",
     width: "400px",
     height: weatherData || notFound ? "555px" : "100px",
     background: "linear-gradient(250deg, #fdd70069, #154f95be)",
@@ -45,7 +75,6 @@ function WeatherAPI() {
     position: "relative",
     width: "100%",
     height: "55px",
-    margintop: "400px",
     display: "flex",
     alignItems: "center",
   };
@@ -83,6 +112,21 @@ function WeatherAPI() {
     fontSize: "20px",
     color: "#fff",
     padding: "0 40px 0 5px",
+    cursor: "pointer",
+  };
+
+  const suggestionsBoxStyle = {
+    position: "absolute",
+    top: "55px",
+    width: "100%",
+    background: "rgba(0, 0, 0, 0.7)",
+    borderRadius: "10px",
+    color: "#fff",
+    zIndex: "1000",
+  };
+
+  const suggestionItemStyle = {
+    padding: "10px",
     cursor: "pointer",
   };
 
@@ -194,12 +238,14 @@ function WeatherAPI() {
     fontWeight: "500",
     marginTop: "12px",
   };
+
   const GlobalStyle = createGlobalStyle`
-  body {
-    background: rgb(108, 75, 94);
-    font-family: "Roboto", sans-serif;
-  }
-`;
+    body {
+      background: rgb(108, 75, 94);
+      font-family: "Roboto", sans-serif;
+    }
+  `;
+
   const footerStyle = {
     fontSize: "1rem",
     marginTop: "5.6rem",
@@ -222,6 +268,7 @@ function WeatherAPI() {
             placeholder="Enter your location"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+            onKeyDown={handleKeyDown}
             style={searchBoxInputStyle}
           />
           <button
@@ -229,6 +276,22 @@ function WeatherAPI() {
             onClick={handleSearch}
             style={searchBoxButtonStyle}
           ></button>
+          {suggestions.length > 0 && (
+            <div className="suggestions" style={suggestionsBoxStyle}>
+              {suggestions.map((suggestion, index) => (
+                <div
+                  key={index}
+                  style={suggestionItemStyle}
+                  onClick={() => {
+                    setCity(suggestion.name);
+                    setSuggestions([]);
+                  }}
+                >
+                  {suggestion.name}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {weatherData && (

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Widget = () => {
   const [currentStation, setCurrentStation] = useState(null);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
   const audioRef = useRef(new Audio());
 
   const stations = [
@@ -28,6 +29,7 @@ const Widget = () => {
     if (currentStation === station.name) {
       audio.pause();
       setCurrentStation(null);
+      setIsButtonClicked(false);
     } else {
       try {
         if (audio.src !== station.url) {
@@ -35,6 +37,7 @@ const Widget = () => {
         }
         await audio.play();
         setCurrentStation(station.name);
+        setIsButtonClicked(true);
       } catch (error) {
         console.error("Error playing audio:", error);
       }
@@ -90,7 +93,7 @@ const Widget = () => {
             transition: 'box-shadow 0.3s',
             cursor: 'pointer'
           }}>
-            🔊
+            {isButtonClicked ? '🚚' : '📻'}
           </button>
         </div>
 
@@ -125,22 +128,15 @@ const Widget = () => {
           ))}
         </div>
 
-        <div style={{ position: 'relative', marginBottom: '1rem' }}>
-          <div style={{
-            position: 'absolute',
-            inset: '50% 0 0 0',
-            transform: 'translateY(-50%)',
-            borderTop: '2px solid #1f2937'
-          }}></div>
-        </div>
+  
 
-        <h2 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1rem' }}>Stations</h2>
+        <h2 style={{ fontSize: '1.25rem', textAlign:'center', fontWeight: '600', marginBottom: '1rem' }}>Stations</h2>
         
         <ul style={{ 
           marginBottom: '1.5rem', 
           borderRadius: '0.5rem', 
           overflowY: 'auto', 
-          maxHeight: '15rem', 
+          maxHeight: '30rem', 
           backgroundColor: '#111827',
           padding: '0 1rem'
         }}>

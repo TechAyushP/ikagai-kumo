@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import SpeedTest from "../AppList/SpeedTest";
 import NewsApi from "../AppList/NewsApi";
 import Tempmail from "../AppList/Tempmail";
-
+import RadioLive from "../AppList/RadioLive"
 import QrcodeGenerator from "../AppList/QrcodeGenerator";
 
 function Router() {
@@ -40,6 +40,10 @@ function Router() {
     {
       path: "/tempmail",
       element: <Tempmail />,
+    },
+    {
+      path: "/radio",
+      element: <RadioLive />,
     },
   ]);
   return (

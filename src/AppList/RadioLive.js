@@ -98,13 +98,15 @@ const Widget = () => {
       <div style={{ maxWidth: "24rem", margin: "0 auto" }}>
         <h1
           style={{
+            background: "194, 122, 118",
+            color: " #53a8b6", // Add this line to change the text color
             fontSize: "1.875rem",
             fontWeight: "bold",
             marginBottom: "0.75rem",
             textAlign: "center",
           }}
         >
-          Live Radio
+          Welcome to Station MZ
         </h1>
 
         <div
@@ -114,7 +116,7 @@ const Widget = () => {
             marginBottom: "0.75rem",
           }}
         >
-          <button
+          {/* <button
             style={{
               backgroundColor: "#10b981",
               color: "black",
@@ -127,7 +129,7 @@ const Widget = () => {
             }}
           >
             {isButtonClicked ? "🚚" : "📻"}
-          </button>
+          </button> */}
         </div>
 
         <p
@@ -137,7 +139,7 @@ const Widget = () => {
             textAlign: "center",
           }}
         >
-          {currentStation ? "Now Playing" : "Turn on the Radio."}
+          {currentStation ? "Now Playing" : "To Turn on the Radio."}
         </p>
 
         <div
@@ -145,6 +147,7 @@ const Widget = () => {
             fontSize: "1.5rem",
             fontWeight: "600",
             marginBottom: "0.5rem",
+            color: " #bbe4e9",
             textAlign: "center",
           }}
         >
@@ -189,6 +192,7 @@ const Widget = () => {
             textAlign: "center",
             fontWeight: "600",
             marginBottom: "1rem",
+            color: "#f4eec0",
           }}
         >
           Stations

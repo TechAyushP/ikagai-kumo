@@ -76,18 +76,7 @@ const images = [
     name: "Link to QR",
     external: false,
   },
-  {
-    src: "https://i.postimg.cc/PqKwNZSZ/file-sharing.png",
-    url: "/tempmail",
-    name: "Temporary Mail",
-    external: false,
-  },
-  {
-    src: "https://i.postimg.cc/vmmmqKvg/speedtest-header-930x620.jpg",
-    url: "/speedtest",
-    name: "Speed Test",
-    external: false,
-  },
+  
   {
     src: "https://images.unsplash.com/photo-1671566852010-67185f179793?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
     url: "https://cinemixmz.vercel.app/",
@@ -100,18 +89,30 @@ const images = [
     name: "Radio",
     external: false,
   },
-  {
-    src: "https://images.unsplash.com/photo-1687894986611-c116bcb6a400?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXx3aXVfa1hzNGZwd3x8ZW58MHx8fHx8",
-    url: "https://www.example9.com/",
-    name: "Example 9",
-    external: true,
-  },
-  {
-    src: "https://images.unsplash.com/photo-1651608903386-8e918ff298f6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    url: "https://www.example10.com/",
-    name: "Example 10",
-    external: true,
-  },
+  // {
+  //   src: "https://i.postimg.cc/PqKwNZSZ/file-sharing.png",
+  //   url: "/tempmail",
+  //   name: "Temporary Mail",
+  //   external: false,
+  // },
+  // {
+  //   src: "https://i.postimg.cc/vmmmqKvg/speedtest-header-930x620.jpg",
+  //   url: "/speedtest",
+  //   name: "Speed Test",
+  //   external: false,
+  // },
+  // {
+  //   src: "https://images.unsplash.com/photo-1687894986611-c116bcb6a400?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXx3aXVfa1hzNGZwd3x8ZW58MHx8fHx8",
+  //   url: "https://www.example9.com/",
+  //   name: "Example 9",
+  //   external: true,
+  // },
+  // {
+  //   src: "https://images.unsplash.com/photo-1651608903386-8e918ff298f6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   url: "https://www.example10.com/",
+  //   name: "Example 10",
+  //   external: true,
+  // },
 ];
 
 const Main = styled.main`

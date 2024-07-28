@@ -2,27 +2,55 @@ import React, { useState, useEffect, useRef } from "react";
 
 const Widget = () => {
   const [currentStation, setCurrentStation] = useState(null);
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const audioRef = useRef(new Audio());
 
   const stations = [
-    { name: "Radio Nasha", url: "http://peridot.streamguys.com:7150/Mirchi" },
-    { name: "92.7 Big Fm", url: "http://sc-bb.1.fm:8017/" },
+    {
+      name: "93.5 Red FM",
+      url: "https://live.cmr24.net/CMR/Desi_Music-MQ/icecast.audio",
+    },
     {
       name: "Fever 104 Fm",
       url: "https://nl4.mystreaming.net/uber/bollywoodlove/icecast.audio",
     },
-    {
-      name: "93.5Red FM",
-      url: "https://live.cmr24.net/CMR/Desi_Music-MQ/icecast.audio",
-    },
     { name: "102.8 Radio City", url: "https://prclive1.listenon.in/Hindi" },
+    { name: "92.7 Big Fm", url: "http://sc-bb.1.fm:8017/" },
+    { name: "Radio Mirchi", url: "http://peridot.streamguys.com:7150/Mirchi" },
+    {
+      name: "Radio Nasha",
+      url: "https://rb.gy/cuyktu",
+    },
     {
       name: "104.8 Ishq",
       url: "https://nl4.mystreaming.net/uber/lrbollywood/icecast.audio",
     },
     { name: "Dance Wave", url: "https://dancewave.online/dance.mp3" },
-    { name: "Jazz", url: "http://jking.cdnstream1.com/b22139_128mp3" },
+    { name: "Smooth Jazz", url: "http://jking.cdnstream1.com/b22139_128mp3" },
+    {
+      name: "Kishore Kumar Hits",
+      url: "https://rb.gy/cac586",
+    },
+
+    {
+      name: "Mohammed Rafi Radio",
+      url: "https://rb.gy/d9n6as",
+    },
+    {
+      name: "Radio Lata Mangeshkar",
+      url: "https://rb.gy/oph5pq",
+    },
+
+    {
+      name: "Bollywood Gaane Purane",
+      url: "https://rb.gy/10omw3",
+    },
+
+    { name: "Old Hindi", url: "http://104.167.2.55:8099/stream" },
+    {
+      name: "Goldy Evergreen",
+      url: "https://rb.gy/cuyktu",
+    },
   ];
 
   useEffect(() => {
@@ -38,17 +66,19 @@ const Widget = () => {
     if (currentStation === station.name) {
       audio.pause();
       setCurrentStation(null);
-      setIsButtonClicked(false);
+      setIsLoading(false);
     } else {
       try {
+        setIsLoading(true);
         if (audio.src !== station.url) {
           audio.src = station.url;
         }
         await audio.play();
         setCurrentStation(station.name);
-        setIsButtonClicked(true);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error playing audio:", error);
+        setIsLoading(false);
       }
     }
   };
@@ -99,38 +129,15 @@ const Widget = () => {
         <h1
           style={{
             background: "194, 122, 118",
-            color: " #53a8b6", // Add this line to change the text color
+            color: " #53a8b6",
             fontSize: "1.875rem",
             fontWeight: "bold",
             marginBottom: "0.75rem",
             textAlign: "center",
           }}
         >
-          Welcome to Station MZ
+          Radio MDZ
         </h1>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: "0.75rem",
-          }}
-        >
-          {/* <button
-            style={{
-              backgroundColor: "#10b981",
-              color: "black",
-              padding: "0.75rem",
-              borderRadius: "9999px",
-              boxShadow:
-                "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-              transition: "box-shadow 0.3s",
-              cursor: "pointer",
-            }}
-          >
-            {isButtonClicked ? "🚚" : "📻"}
-          </button> */}
-        </div>
 
         <p
           style={{
@@ -157,33 +164,37 @@ const Widget = () => {
         <div
           style={{
             display: "flex",
-            alignItems: "flex-end",
+            alignItems: "center",
             justifyContent: "center",
-            gap: "0.25rem",
             height: "4rem",
             marginBottom: "1.5rem",
           }}
         >
-          {[
-            0, 0.5, 0.2, 0.75, 1.0, 1.5, 1.2, 1.75, 2.0, 2.5, 2.2, 2.75, 3.0,
-            3.5, 3.2, 3.75, 4.0, 4.5, 4.2, 4.75, 5.0, 5.5, 5.2, 5.75, 6.0,
-          ].map((delay, index) => (
-            <div
-              key={index}
-              style={{
-                animation: currentStation
-                  ? `play 1s ease-out infinite`
-                  : "none",
-                animationDelay: currentStation ? `${delay}s` : "0s",
-                backgroundColor: currentStation
-                  ? getRandomColor()
-                  : "transparent",
-                height: currentStation ? "100%" : "0",
-                width: "0.5rem",
-                transition: "height 0.3s, background-color 0.3s",
-              }}
-            />
-          ))}
+          {isLoading ? (
+            <div className="loader"></div>
+          ) : (
+            [
+              0, 0.5, 0.2, 0.75, 1.0, 1.5, 1.2, 1.75, 2.0, 2.5, 2.2, 2.75, 3.0,
+              3.5, 3.2, 3.75, 4.0, 4.5, 4.2, 4.75, 5.0, 5.5, 5.2, 5.75, 6.0,
+            ].map((delay, index) => (
+              <div
+                key={index}
+                style={{
+                  animation: currentStation
+                    ? `play 1s ease-out infinite`
+                    : "none",
+                  animationDelay: currentStation ? `${delay}s` : "0s",
+                  backgroundColor: currentStation
+                    ? getRandomColor()
+                    : "transparent",
+                  height: currentStation ? "100%" : "0",
+                  width: "0.5rem",
+                  margin: "0 0.1rem",
+                  transition: "height 0.3s, background-color 0.3s",
+                }}
+              />
+            ))
+          )}
         </div>
 
         <h2
@@ -225,7 +236,7 @@ const Widget = () => {
           }}
         >
           {
-            "It may take a moment for your selected channel to play. Please be patient."
+            ""
           }
         </p>
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -264,6 +275,21 @@ const Widget = () => {
           100% {
             height: 10%;
           }
+        }
+
+        @keyframes l2 {
+          50% {
+            background-position: right;
+          }
+        }
+
+        .loader {
+          width: 120px;
+          height: 20px;
+          border-radius: 20px;
+          background: radial-gradient(farthest-side, orange 94%, #0000)
+            left/20px 20px no-repeat lightblue;
+          animation: l2 1s infinite linear;
         }
 
         ul::-webkit-scrollbar {

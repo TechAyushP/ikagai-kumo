@@ -15,8 +15,6 @@ const Widget = () => {
       url: "https://nl4.mystreaming.net/uber/bollywoodlove/icecast.audio",
     },
     { name: "102.8 Radio City", url: "https://prclive1.listenon.in/Hindi" },
-    { name: "92.7 Big Fm", url: "http://sc-bb.1.fm:8017/" },
-    { name: "Radio Mirchi", url: "http://peridot.streamguys.com:7150/Mirchi" },
     {
       name: "Radio Nasha",
       url: "https://rb.gy/cuyktu",
@@ -26,7 +24,7 @@ const Widget = () => {
       url: "https://nl4.mystreaming.net/uber/lrbollywood/icecast.audio",
     },
     { name: "Dance Wave", url: "https://dancewave.online/dance.mp3" },
-    { name: "Smooth Jazz", url: "http://jking.cdnstream1.com/b22139_128mp3" },
+    { name: "Smooth Jazz", url: "https://jking.cdnstream1.com/b22139_128mp3" },
     {
       name: "Kishore Kumar Hits",
       url: "https://rb.gy/cac586",
@@ -46,11 +44,13 @@ const Widget = () => {
       url: "https://rb.gy/10omw3",
     },
 
-    { name: "Old Hindi", url: "http://104.167.2.55:8099/stream" },
     {
       name: "Goldy Evergreen",
       url: "https://rb.gy/cuyktu",
     },
+    // { name: "92.7 Big Fm (Dextop Supported)", url: "http://sc-bb.1.fm:8017/" },
+    // { name: "Radio Mirchi (Dextop Supported)", url: "http://peridot.streamguys.com:7150/Mirchi" },
+
   ];
 
   useEffect(() => {
@@ -235,9 +235,7 @@ const Widget = () => {
             textAlign: "center",
           }}
         >
-          {
-            ""
-          }
+          {""}
         </p>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button

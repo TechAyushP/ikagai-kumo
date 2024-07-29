@@ -10,34 +10,56 @@ const Widget = () => {
       name: "93.5 Red FM",
       url: "https://live.cmr24.net/CMR/Desi_Music-MQ/icecast.audio",
     },
+
     {
       name: "Fever 104 Fm",
       url: "https://nl4.mystreaming.net/uber/bollywoodlove/icecast.audio",
     },
-    { name: "102.8 Radio City", url: "https://prclive1.listenon.in/Hindi" },
+
+    { name: "Bhojpuri Hitz", url: "https://t.ly/DS2By" },
+    { name: "Driver & Barber Playlist", url: "https://t.ly/ECr9M" },
+    { name: "Punjabi New Hits", url: "https://t.ly/l9XHs" },
+
+    { name: "EDM DJ", url: "https://t.ly/cgVVy" },
+
     {
       name: "Radio Nasha",
       url: "https://rb.gy/cuyktu",
     },
+
     {
       name: "104.8 Ishq",
       url: "https://nl4.mystreaming.net/uber/lrbollywood/icecast.audio",
     },
+
+    { name: "Punjabi Mix", url: "https://s2.radio.co/sbb640c97c/listen" },
+    { name: "102.8 Radio City", url: "https://prclive1.listenon.in/Hindi" },
+
     { name: "Dance Wave", url: "https://dancewave.online/dance.mp3" },
     { name: "Smooth Jazz", url: "https://jking.cdnstream1.com/b22139_128mp3" },
     {
       name: "Kishore Kumar Hits",
       url: "https://rb.gy/cac586",
     },
-
+    {
+      name: "Namaste Bollywood",
+      url: "https://t.ly/RgAza",
+    },
     {
       name: "Mohammed Rafi Radio",
       url: "https://rb.gy/d9n6as",
     },
     {
+      name: "Desi Punjab",
+      url: "https://tinyurl.com/2wbk63dw",
+    },
+
+    {
       name: "Radio Lata Mangeshkar",
       url: "https://rb.gy/oph5pq",
     },
+    { name: "Desi Bollywood", url: "https://www.desizoneradio.com/relay2" },
+    { name: "24/7 English Comedy", url: "https://n2bb-e2.revma.ihrhls.com/zc4902?rj-ttl=5&rj-tok=AAABkP2UHFIAY3jvJI0CSPog0w" },
 
     {
       name: "Bollywood Gaane Purane",
@@ -50,7 +72,6 @@ const Widget = () => {
     },
     // { name: "92.7 Big Fm (Dextop Supported)", url: "http://sc-bb.1.fm:8017/" },
     // { name: "Radio Mirchi (Dextop Supported)", url: "http://peridot.streamguys.com:7150/Mirchi" },
-
   ];
 
   useEffect(() => {

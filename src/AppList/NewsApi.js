@@ -4,8 +4,9 @@ function NewsApi() {
   const [articles, setArticles] = useState([]);
   const [sources, setSources] = useState([]);
   const [time, setTime] = useState(new Date());
+  const [loading, setLoading] = useState(true);
   const apiKey = "pub_490408933c9efa72f983d97d9371812346021";
-  const articlesUrl = `  https://newsdata.io/api/1/latest?apikey=${apiKey}&country=us,in&language=en`;
+  const articlesUrl = `https://newsdata.io/api/1/latest?apikey=${apiKey}&country=us,in&language=en`;
   const sourcesUrl = `https://newsdata.io/api/1/sources?apikey=${apiKey}`;
 
   useEffect(() => {
@@ -26,6 +27,7 @@ function NewsApi() {
             source.country.includes("india")
         );
         setSources(filteredSources);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching the news:", error);
       }
@@ -54,33 +56,46 @@ function NewsApi() {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.clockContainer}>
-        <div style={styles.time}>{formatTime(time)}</div>
-        <div style={styles.date}>{formatDate(time)}</div>
-      </div>
-
-      <main style={styles.main}>
-        {articles.map((article, index) => (
-          <figure key={index} className="snip1347">
-            <img src={article.image_url} alt={article.title} />
-            <figcaption>
-              <h2>{article.title}</h2>
-              <p>{article.description}</p>
-              <a
-                href={article.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="read-more"
-              >
-                Read More
-              </a>
-              <div className="source">{article.source_id}</div>
-            </figcaption>
-          </figure>
-        ))}
-      </main>
-      <aside style={styles.sidebar}>Contact- Info@mdzaid.us.kg</aside>
+    <div
+      style={{
+        ...styles.container,
+        overflow: loading ? "hidden" : "auto",
+        filter: loading ? "blur(5px)" : "none",
+      }}
+    >
+      {loading ? (
+        <div style={styles.loaderContainer}>
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <>
+          <div style={styles.clockContainer}>
+            <div style={styles.time}>{formatTime(time)}</div>
+            <div style={styles.date}>{formatDate(time)}</div>
+          </div>
+          <main style={styles.main}>
+            {articles.map((article, index) => (
+              <figure key={index} className="snip1347">
+                <img src={article.image_url} alt={article.title} />
+                <figcaption>
+                  <h2>{article.title}</h2>
+                  <p>{article.description}</p>
+                  <a
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="read-more"
+                  >
+                    Read More
+                  </a>
+                  <div className="source">{article.source_id}</div>
+                </figcaption>
+              </figure>
+            ))}
+          </main>
+          <aside style={styles.sidebar}>Contact- Info@mdzaid.us.kg</aside>
+        </>
+      )}
     </div>
   );
 }
@@ -92,6 +107,7 @@ const styles = {
     padding: "20px",
     minHeight: "100vh",
     color: "white",
+    position: "relative",
   },
   clockContainer: {
     marginBottom: "20px",
@@ -122,10 +138,17 @@ const styles = {
     borderRadius: "8px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
   },
-  sourceIcon: {
-    width: "20px",
-    height: "20px",
-    marginRight: "10px",
+  loaderContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    backgroundColor: "#121212",
+    zIndex: 1000,
   },
 };
 
@@ -195,6 +218,33 @@ const snip1347Styles = `
     letter-spacing: 1px;
     opacity: 0.8;
     margin-top: 10px;
+  }
+  .loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background:
+      linear-gradient(0deg ,rgb(0 0 0/50%) 30%,#0000 0 70%,rgb(0 0 0/100%) 0) 50%/8% 100%,
+      linear-gradient(90deg,rgb(0 0 0/25%) 30%,#0000 0 70%,rgb(0 0 0/75% ) 0) 50%/100% 8%;
+    background-repeat: no-repeat;
+    animation: l23 1s infinite steps(12);
+  }
+  .loader::before,
+  .loader::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+  }
+  .loader::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
+  }
+  @keyframes l23 {
+    100% {transform: rotate(1turn)}
   }
 `;
 

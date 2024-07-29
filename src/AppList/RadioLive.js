@@ -263,21 +263,13 @@ const Widget = () => {
         .loader {
           width: 120px;
           height: 20px;
-          border-radius: 20px;
-          background: repeating-linear-gradient(
-              135deg,
-              #f03355 0 10px,
-              #ffa516 0 20px
-            )
-            0/0% no-repeat,
-            repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;
-          animation: l3 2s infinite;
+          -webkit-mask: radial-gradient(circle closest-side,#000 94%,#0000) left/20% 100%;
+          background: linear-gradient(#000 0 0) left/0% 100% no-repeat #ddd;
+          animation: l17 2s infinite steps(6);
         }
 
-        @keyframes l3 {
-          100% {
-            background-size: 100%;
-          }
+        @keyframes l17 {
+          100% {background-size:120% 100%}
         }
       `}</style>
     </div>

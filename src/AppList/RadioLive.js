@@ -6,72 +6,28 @@ const Widget = () => {
   const audioRef = useRef(new Audio());
 
   const stations = [
-    {
-      name: "93.5 Red FM",
-      url: "https://live.cmr24.net/CMR/Desi_Music-MQ/icecast.audio",
-    },
-
-    {
-      name: "Fever 104 Fm",
-      url: "https://nl4.mystreaming.net/uber/bollywoodlove/icecast.audio",
-    },
-
+    { name: "93.5 Red FM", url: "https://live.cmr24.net/CMR/Desi_Music-MQ/icecast.audio" },
+    { name: "Fever 104 Fm", url: "https://nl4.mystreaming.net/uber/bollywoodlove/icecast.audio" },
     { name: "Bhojpuri Hitz", url: "https://t.ly/DS2By" },
     { name: "Driver & Barber Playlist", url: "https://t.ly/ECr9M" },
     { name: "Punjabi New Hits", url: "https://t.ly/l9XHs" },
-
     { name: "EDM DJ", url: "https://t.ly/cgVVy" },
-
-    {
-      name: "Radio Nasha",
-      url: "https://rb.gy/cuyktu",
-    },
-
-    {
-      name: "104.8 Ishq",
-      url: "https://nl4.mystreaming.net/uber/lrbollywood/icecast.audio",
-    },
-
+    { name: "Radio Nasha", url: "https://rb.gy/cuyktu" },
+    { name: "104.8 Ishq", url: "https://nl4.mystreaming.net/uber/lrbollywood/icecast.audio" },
     { name: "Punjabi Mix", url: "https://s2.radio.co/sbb640c97c/listen" },
     { name: "102.8 Radio City", url: "https://prclive1.listenon.in/Hindi" },
-
     { name: "Dance Wave", url: "https://dancewave.online/dance.mp3" },
     { name: "Smooth Jazz", url: "https://jking.cdnstream1.com/b22139_128mp3" },
-    {
-      name: "Kishore Kumar Hits",
-      url: "https://rb.gy/cac586",
-    },
-    {
-      name: "Namaste Bollywood",
-      url: "https://t.ly/RgAza",
-    },
-    {
-      name: "Mohammed Rafi Radio",
-      url: "https://rb.gy/d9n6as",
-    },
-    {
-      name: "Desi Punjab",
-      url: "https://tinyurl.com/2wbk63dw",
-    },
-
-    {
-      name: "Radio Lata Mangeshkar",
-      url: "https://rb.gy/oph5pq",
-    },
+    { name: "Kishore Kumar Hits", url: "https://rb.gy/cac586" },
+    { name: "Namaste Bollywood", url: "https://t.ly/RgAza" },
+    { name: "Mohammed Rafi Radio", url: "https://rb.gy/d9n6as" },
+    { name: "Desi Punjab", url: "https://tinyurl.com/2wbk63dw" },
+    { name: "Radio Lata Mangeshkar", url: "https://rb.gy/oph5pq" },
     { name: "Desi Bollywood", url: "https://www.desizoneradio.com/relay2" },
     { name: "24/7 English Comedy", url: "https://n2bb-e2.revma.ihrhls.com/zc4902?rj-ttl=5&rj-tok=AAABkP2UHFIAY3jvJI0CSPog0w" },
-
-    {
-      name: "Bollywood Gaane Purane",
-      url: "https://rb.gy/10omw3",
-    },
-
-    {
-      name: "Goldy Evergreen",
-      url: "https://rb.gy/cuyktu",
-    },
-    // { name: "92.7 Big Fm (Dextop Supported)", url: "http://sc-bb.1.fm:8017/" },
-    // { name: "Radio Mirchi (Dextop Supported)", url: "http://peridot.streamguys.com:7150/Mirchi" },
+    { name: "Bollywood Gaane Purane", url: "https://rb.gy/10omw3" },
+    { name: "Radio Bangla", url: "https://stream.radiotreetal.com/listen" },
+    { name: "Goldy Evergreen", url: "https://rb.gy/cuyktu" },
   ];
 
   useEffect(() => {
@@ -87,7 +43,6 @@ const Widget = () => {
     if (currentStation === station.name) {
       audio.pause();
       setCurrentStation(null);
-      setIsLoading(false);
     } else {
       try {
         setIsLoading(true);
@@ -96,9 +51,9 @@ const Widget = () => {
         }
         await audio.play();
         setCurrentStation(station.name);
-        setIsLoading(false);
       } catch (error) {
         console.error("Error playing audio:", error);
+      } finally {
         setIsLoading(false);
       }
     }
@@ -131,7 +86,7 @@ const Widget = () => {
     >
       <span style={{ fontSize: "1.125rem" }}>{station.name}</span>
       <button style={{ color: "#6b7280", transition: "color 0.3s" }}>
-        {isPlaying ? " 🎀" : " ❤️️"}
+        {isPlaying ? " 📻" : " "}
       </button>
     </li>
   );
@@ -296,21 +251,6 @@ const Widget = () => {
           }
         }
 
-        @keyframes l2 {
-          50% {
-            background-position: right;
-          }
-        }
-
-        .loader {
-          width: 120px;
-          height: 20px;
-          border-radius: 20px;
-          background: radial-gradient(farthest-side, orange 94%, #0000)
-            left/20px 20px no-repeat lightblue;
-          animation: l2 1s infinite linear;
-        }
-
         ul::-webkit-scrollbar {
           display: none;
         }
@@ -318,6 +258,26 @@ const Widget = () => {
         ul {
           -ms-overflow-style: none;
           scrollbar-width: none;
+        }
+
+        .loader {
+          width: 120px;
+          height: 20px;
+          border-radius: 20px;
+          background: repeating-linear-gradient(
+              135deg,
+              #f03355 0 10px,
+              #ffa516 0 20px
+            )
+            0/0% no-repeat,
+            repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;
+          animation: l3 2s infinite;
+        }
+
+        @keyframes l3 {
+          100% {
+            background-size: 100%;
+          }
         }
       `}</style>
     </div>
